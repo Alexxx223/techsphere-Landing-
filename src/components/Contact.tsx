@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { toast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin } from 'lucide-react';
-import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 
 const Contact = () => {
@@ -35,51 +34,51 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="relative overflow-hidden py-24 bg-richblack section-bg">
-      <div className="container mx-auto px-4" data-aos="fade-up">
-        <div className="text-center mb-16">
+    <section id="contact" className="py-24 bg-richblack">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16" data-aos="fade-up">
           <h2 className="heading-lg mb-6">Contact</h2>
-          <p className="subheading max-w-2xl mx-auto">
+          <p className="subheading max-w-3xl mx-auto">
             Feel free to reach out to us! We're here to assist with any inquiries or collaborations.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
-          <div className="glassmorphism rounded-xl p-6 flex flex-col items-center text-center">
-            <div className="h-12 w-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-4">
+        <div className="grid lg:grid-cols-3 gap-6 mb-12">
+          <div className="glassmorphism rounded-xl p-6 text-center" data-aos="fade-up">
+            <div className="inline-flex items-center justify-center h-14 w-14 rounded-full bg-white/5 border border-white/10 mb-4">
               <MapPin className="h-6 w-6 text-teal" />
             </div>
-            <h3 className="text-white font-medium text-xl mb-2">Our Address</h3>
+            <h3 className="text-xl font-medium mb-2">Our Address</h3>
             <p className="text-white/70">Lusaka, Zambia</p>
           </div>
           
-          <div className="glassmorphism rounded-xl p-6 flex flex-col items-center text-center">
-            <div className="h-12 w-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-4">
+          <div className="glassmorphism rounded-xl p-6 text-center" data-aos="fade-up" data-aos-delay="100">
+            <div className="inline-flex items-center justify-center h-14 w-14 rounded-full bg-white/5 border border-white/10 mb-4">
               <Mail className="h-6 w-6 text-cyan" />
             </div>
-            <h3 className="text-white font-medium text-xl mb-2">Email Us</h3>
+            <h3 className="text-xl font-medium mb-2">Email Us</h3>
             <p className="text-white/70">techspheretechnologies140@gmail.com</p>
           </div>
           
-          <div className="glassmorphism rounded-xl p-6 flex flex-col items-center text-center">
-            <div className="h-12 w-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-4">
+          <div className="glassmorphism rounded-xl p-6 text-center" data-aos="fade-up" data-aos-delay="200">
+            <div className="inline-flex items-center justify-center h-14 w-14 rounded-full bg-white/5 border border-white/10 mb-4">
               <Phone className="h-6 w-6 text-teal" />
             </div>
-            <h3 className="text-white font-medium text-xl mb-2">Call Us</h3>
+            <h3 className="text-xl font-medium mb-2">Call Us</h3>
             <p className="text-white/70">+260 772792882</p>
           </div>
         </div>
 
-        <div className="mt-12 grid lg:grid-cols-2 gap-12">
-          <div className="glassmorphism rounded-xl p-8 animate-fade-in-left">
-            <h3 className="text-xl font-medium text-white mb-6">We'd love to hear from you</h3>
+        <div className="grid lg:grid-cols-2 gap-8">
+          <div className="glassmorphism rounded-xl p-8" data-aos="fade-up">
+            <h3 className="text-xl font-medium mb-6">We'd love to hear from you</h3>
             <p className="text-white/70 mb-8">
               Let us know how we can help with your business needs. 
               Whether you're interested in our services, partnership opportunities, 
               or just want to say hello, we're here for you.
             </p>
             
-            <div className="flex flex-col space-y-4">
+            <div className="space-y-6">
               <div className="flex items-center">
                 <div className="h-10 w-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mr-4">
                   <svg className="h-5 w-5 text-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -100,7 +99,7 @@ const Contact = () => {
             </div>
           </div>
           
-          <div className="glassmorphism rounded-xl p-8 border border-white/10 animate-fade-in-right">
+          <div className="glassmorphism rounded-xl p-8" data-aos="fade-up" data-aos-delay="100">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
@@ -113,7 +112,7 @@ const Contact = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent transition-all duration-200 text-white placeholder-white/30"
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent transition-colors text-white"
                     placeholder="Your name"
                     required
                   />
@@ -129,7 +128,7 @@ const Contact = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent transition-all duration-200 text-white placeholder-white/30"
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent transition-colors text-white"
                     placeholder="your.email@example.com"
                     required
                   />
@@ -146,7 +145,7 @@ const Contact = () => {
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent transition-all duration-200 text-white placeholder-white/30"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent transition-colors text-white"
                   placeholder="What's this about?"
                   required
                 />
@@ -162,24 +161,16 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   rows={5}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent transition-all duration-200 text-white placeholder-white/30"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent transition-colors text-white"
                   placeholder="Tell us about your project..."
                   required
                 />
               </div>
               
-              <div className="relative">
-                {isSubmitting && (
-                  <div className="my-3 loading text-center text-white/70">Loading...</div>
-                )}
-                <div className="error-message hidden"></div>
-                <div className="sent-message hidden">Your message has been sent. Thank you!</div>
-              </div>
-              
-              <Button
+              <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full px-6 py-3 bg-gradient-to-r from-teal to-cyan text-white font-medium rounded-lg transition-all duration-300 transform hover:translate-y-[-2px] hover:shadow-lg flex items-center justify-center"
+                className="w-full px-6 py-3 bg-gradient-to-r from-teal to-cyan text-white font-medium rounded-lg transition-all duration-300 hover:translate-y-[-2px] hover:shadow-lg flex items-center justify-center"
               >
                 {isSubmitting ? (
                   <>
@@ -192,7 +183,7 @@ const Contact = () => {
                 ) : (
                   "Send Message"
                 )}
-              </Button>
+              </button>
               
               <p className="text-center text-white/50 text-sm">
                 We'll get back to you within 24 hours

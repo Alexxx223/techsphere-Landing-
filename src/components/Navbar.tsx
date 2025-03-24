@@ -23,7 +23,7 @@ const Navbar = () => {
         isScrolled ? "py-3 glassmorphism" : ""
       )}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <a href="#" className="flex items-center space-x-2">
@@ -35,11 +35,20 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#services" className="text-white/80 hover:text-white transition-colors">
-              Services
+            <a href="#hero" className="text-white/80 hover:text-white transition-colors">
+              Home
             </a>
             <a href="#about" className="text-white/80 hover:text-white transition-colors">
               About
+            </a>
+            <a href="#services" className="text-white/80 hover:text-white transition-colors">
+              Services
+            </a>
+            <a href="#portfolio" className="text-white/80 hover:text-white transition-colors">
+              Portfolio
+            </a>
+            <a href="#team" className="text-white/80 hover:text-white transition-colors">
+              Team
             </a>
             <a href="#contact" className="text-white/80 hover:text-white transition-colors">
               Contact
@@ -70,11 +79,11 @@ const Navbar = () => {
       >
         <div className="p-4 space-y-4 flex flex-col items-center justify-center h-full">
           <a 
-            href="#services" 
+            href="#hero" 
             onClick={() => setIsMenuOpen(false)}
             className="text-white/80 hover:text-white transition-colors text-xl"
           >
-            Services
+            Home
           </a>
           <a 
             href="#about" 
@@ -82,6 +91,27 @@ const Navbar = () => {
             className="text-white/80 hover:text-white transition-colors text-xl"
           >
             About
+          </a>
+          <a 
+            href="#services" 
+            onClick={() => setIsMenuOpen(false)}
+            className="text-white/80 hover:text-white transition-colors text-xl"
+          >
+            Services
+          </a>
+          <a 
+            href="#portfolio" 
+            onClick={() => setIsMenuOpen(false)}
+            className="text-white/80 hover:text-white transition-colors text-xl"
+          >
+            Portfolio
+          </a>
+          <a 
+            href="#team" 
+            onClick={() => setIsMenuOpen(false)}
+            className="text-white/80 hover:text-white transition-colors text-xl"
+          >
+            Team
           </a>
           <a 
             href="#contact" 

@@ -6,7 +6,7 @@ const Footer = () => {
   
   return (
     <footer className="bg-richblack border-t border-white/10">
-      <div className="section-container py-12">
+      <div className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
             <a href="#" className="flex items-center space-x-2 mb-6">
@@ -15,7 +15,7 @@ const Footer = () => {
               </span>
             </a>
             <p className="text-white/60 max-w-md">
-              Empowering organizations by leveraging technology to drive growth, enhance customer experiences, and optimize operations.
+              Innovative solutions for a tech-driven world. Empowering organizations by leveraging technology to drive growth, enhance customer experiences, and optimize operations.
             </p>
             
             <div className="flex space-x-4 mt-6">
@@ -43,29 +43,93 @@ const Footer = () => {
           </div>
           
           <div>
-            <h3 className="text-white font-medium mb-4">Services</h3>
+            <h3 className="text-white font-medium mb-4">Useful Links</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-white/60 hover:text-teal transition-colors">UI/UX Design</a></li>
-              <li><a href="#" className="text-white/60 hover:text-teal transition-colors">Web Development</a></li>
-              <li><a href="#" className="text-white/60 hover:text-teal transition-colors">Graphic Design</a></li>
-              <li><a href="#" className="text-white/60 hover:text-teal transition-colors">Digital Marketing</a></li>
+              <li>
+                <a href="#" className="text-white/60 hover:text-teal transition-colors flex items-center">
+                  <svg className="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                  Home
+                </a>
+              </li>
+              <li>
+                <a href="#about" className="text-white/60 hover:text-teal transition-colors flex items-center">
+                  <svg className="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a href="#services" className="text-white/60 hover:text-teal transition-colors flex items-center">
+                  <svg className="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                  Services
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-white/60 hover:text-teal transition-colors flex items-center">
+                  <svg className="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                  Terms of Service
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-white/60 hover:text-teal transition-colors flex items-center">
+                  <svg className="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                  Privacy Policy
+                </a>
+              </li>
             </ul>
           </div>
           
           <div>
-            <h3 className="text-white font-medium mb-4">Company</h3>
+            <h3 className="text-white font-medium mb-4">Our Services</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-white/60 hover:text-teal transition-colors">About</a></li>
-              <li><a href="#" className="text-white/60 hover:text-teal transition-colors">Careers</a></li>
-              <li><a href="#" className="text-white/60 hover:text-teal transition-colors">Blog</a></li>
-              <li><a href="#" className="text-white/60 hover:text-teal transition-colors">Contact</a></li>
+              <li>
+                <a href="#services" className="text-white/60 hover:text-teal transition-colors flex items-center">
+                  <svg className="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                  Web Development
+                </a>
+              </li>
+              <li>
+                <a href="#services" className="text-white/60 hover:text-teal transition-colors flex items-center">
+                  <svg className="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                  Graphic Design
+                </a>
+              </li>
+              <li>
+                <a href="#services" className="text-white/60 hover:text-teal transition-colors flex items-center">
+                  <svg className="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                  Mobile App Design
+                </a>
+              </li>
+              <li>
+                <a href="#services" className="text-white/60 hover:text-teal transition-colors flex items-center">
+                  <svg className="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                  IT Consulting
+                </a>
+              </li>
             </ul>
           </div>
         </div>
         
         <div className="pt-8 mt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center">
           <p className="text-white/40 text-sm">
-            © {currentYear} TechSphere. All rights reserved.
+            © {currentYear} TechSphere Technologies. All rights reserved.
           </p>
           
           <div className="flex space-x-6 mt-4 md:mt-0">
@@ -73,6 +137,10 @@ const Footer = () => {
             <a href="#" className="text-white/40 hover:text-white text-sm">Terms of Service</a>
             <a href="#" className="text-white/40 hover:text-white text-sm">Cookie Policy</a>
           </div>
+        </div>
+        
+        <div className="text-center mt-6 text-white/40 text-sm">
+          Designed by <a href="https://alex-22333.web.app/" className="text-teal hover:underline">Alex Mwenya</a> and <a href="https://alex-22333.web.app/" className="text-teal hover:underline">Ronald Nkhoma</a>
         </div>
       </div>
     </footer>

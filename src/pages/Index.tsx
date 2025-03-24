@@ -1,8 +1,12 @@
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
+import About from '@/components/About';
 import Services from '@/components/Services';
+import Portfolio from '@/components/Portfolio';
+import Team from '@/components/Team';
+import Pricing from '@/components/Pricing';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import { Toaster } from "@/components/ui/toaster";
@@ -12,7 +16,11 @@ const Index = () => {
     <main className="min-h-screen bg-richblack text-white overflow-hidden">
       <Navbar />
       <Hero />
+      <About />
       <Services />
+      <Pricing />
+      <Portfolio />
+      <Team />
       <Contact />
       <Footer />
       <Toaster />
