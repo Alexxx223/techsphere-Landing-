@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Code, Cloud, Devices, ShieldCheck } from 'lucide-react';
+import { Code, Cloud, Laptop, ShieldCheck } from 'lucide-react';
 
 const About = () => {
   return (
@@ -43,7 +43,7 @@ const About = () => {
               </div>
               
               <div className="glassmorphism rounded-xl p-6" data-aos="fade-up" data-aos-delay="300">
-                <Devices className="h-10 w-10 text-teal mb-4" />
+                <Laptop className="h-10 w-10 text-teal mb-4" />
                 <h4 className="text-xl font-medium mb-3">Digital Transformation</h4>
                 <p className="text-white/70">
                   Transform your business processes with our comprehensive digital solutions designed for maximum efficiency and growth.
