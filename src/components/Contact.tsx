@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { cn } from "@/lib/utils";
-import { toast } from "@/components/ui/sonner";
+import { toast } from "@/hooks/use-toast";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -22,7 +22,10 @@ const Contact = () => {
     
     // Simulate form submission
     setTimeout(() => {
-      toast.success("Message sent successfully. We'll be in touch shortly!");
+      toast({
+        title: "Success!",
+        description: "Message sent successfully. We'll be in touch shortly!",
+      });
       setFormData({ name: '', email: '', message: '' });
       setIsSubmitting(false);
     }, 1500);
