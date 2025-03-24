@@ -13,7 +13,7 @@ import { Toaster } from "@/components/ui/toaster";
 
 const Index = () => {
   return (
-    <main className="min-h-screen bg-richblack text-white overflow-hidden">
+    <main className="min-h-screen bg-richblack text-white overflow-x-hidden">
       <Navbar />
       <Hero />
       <About />
