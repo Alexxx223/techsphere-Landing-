@@ -2,11 +2,13 @@
 import React, { useState } from 'react';
 import { cn } from "@/lib/utils";
 import { toast } from "@/hooks/use-toast";
+import { Mail, Phone, MapPin } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    subject: '',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -26,7 +28,7 @@ const Contact = () => {
         title: "Success!",
         description: "Message sent successfully. We'll be in touch shortly!",
       });
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({ name: '', email: '', subject: '', message: '' });
       setIsSubmitting(false);
     }, 1500);
   };
@@ -41,38 +43,74 @@ const Contact = () => {
       
       <div className="section-container">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="text-center mb-16">
+            <span className="inline-flex items-center rounded-full border border-white/10 px-4 py-1.5 text-sm font-medium text-white bg-white/5 backdrop-blur-sm mb-6">
+              Contact Us
+            </span>
+            
+            <h2 className="heading-lg mb-6">
+              Get in <span className="text-teal">Touch</span>
+            </h2>
+            
+            <p className="subheading max-w-2xl mx-auto">
+              Feel free to reach out to us! We're here to assist with any inquiries or help transform your digital presence.
+            </p>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div className="animate-fade-in-left">
-              <span className="inline-flex items-center rounded-full border border-white/10 px-4 py-1.5 text-sm font-medium text-white bg-white/5 backdrop-blur-sm mb-6">
-                Get in Touch
-              </span>
-              
-              <h2 className="heading-lg mb-6">
-                Ready to Transform Your <span className="text-teal">Digital Presence?</span>
-              </h2>
-              
-              <p className="subheading mb-8">
-                Let's discuss how TechSphere can help your business thrive in the digital landscape. 
-                Fill out the form, and our team will reach out to you shortly.
-              </p>
-              
-              <div className="flex flex-col space-y-4">
-                <div className="flex items-center">
-                  <div className="h-10 w-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mr-4">
-                    <svg className="h-5 w-5 text-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                <div className="glassmorphism rounded-xl p-6 flex flex-col items-center text-center">
+                  <div className="h-12 w-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-4">
+                    <MapPin className="h-6 w-6 text-teal" />
                   </div>
-                  <span className="text-white/70">contact@techsphere.com</span>
+                  <h3 className="text-white font-medium mb-2">Our Address</h3>
+                  <p className="text-white/70">Lusaka, Zambia</p>
                 </div>
                 
-                <div className="flex items-center">
-                  <div className="h-10 w-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mr-4">
-                    <svg className="h-5 w-5 text-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                    </svg>
+                <div className="glassmorphism rounded-xl p-6 flex flex-col items-center text-center">
+                  <div className="h-12 w-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-4">
+                    <Mail className="h-6 w-6 text-cyan" />
                   </div>
-                  <span className="text-white/70">+1 (555) 123-4567</span>
+                  <h3 className="text-white font-medium mb-2">Email Us</h3>
+                  <p className="text-white/70">techspheretechnologies140@gmail.com</p>
+                </div>
+                
+                <div className="glassmorphism rounded-xl p-6 flex flex-col items-center text-center">
+                  <div className="h-12 w-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-4">
+                    <Phone className="h-6 w-6 text-teal" />
+                  </div>
+                  <h3 className="text-white font-medium mb-2">Call Us</h3>
+                  <p className="text-white/70">+260 772792882</p>
+                </div>
+              </div>
+              
+              <div className="glassmorphism rounded-xl p-8 mt-6">
+                <h3 className="text-xl font-medium text-white mb-6">We'd love to hear from you</h3>
+                <p className="text-white/70 mb-8">
+                  Let us know how we can help with your business needs. 
+                  Whether you're interested in our services, partnership opportunities, 
+                  or just want to say hello, we're here for you.
+                </p>
+                
+                <div className="flex flex-col space-y-4">
+                  <div className="flex items-center">
+                    <div className="h-10 w-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mr-4">
+                      <svg className="h-5 w-5 text-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
+                      </svg>
+                    </div>
+                    <span className="text-white/70">Available 24/7 for urgent inquiries</span>
+                  </div>
+                  
+                  <div className="flex items-center">
+                    <div className="h-10 w-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mr-4">
+                      <svg className="h-5 w-5 text-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                      </svg>
+                    </div>
+                    <span className="text-white/70">100% secure communication</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -80,34 +118,52 @@ const Contact = () => {
             <div className="animate-fade-in-right">
               <div className="glassmorphism rounded-xl p-8 border border-white/10">
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-white/70 mb-2">
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent transition-all duration-200 text-white placeholder-white/30"
-                      placeholder="Your name"
-                      required
-                    />
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-medium text-white/70 mb-2">
+                        Name
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent transition-all duration-200 text-white placeholder-white/30"
+                        placeholder="Your name"
+                        required
+                      />
+                    </div>
+                    
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-medium text-white/70 mb-2">
+                        Email
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent transition-all duration-200 text-white placeholder-white/30"
+                        placeholder="your.email@example.com"
+                        required
+                      />
+                    </div>
                   </div>
                   
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-white/70 mb-2">
-                      Email
+                    <label htmlFor="subject" className="block text-sm font-medium text-white/70 mb-2">
+                      Subject
                     </label>
                     <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
+                      type="text"
+                      id="subject"
+                      name="subject"
+                      value={formData.subject}
                       onChange={handleChange}
                       className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent transition-all duration-200 text-white placeholder-white/30"
-                      placeholder="your.email@example.com"
+                      placeholder="How can we help?"
                       required
                     />
                   </div>
@@ -148,6 +204,10 @@ const Contact = () => {
                       "Send Message"
                     )}
                   </button>
+                  
+                  <p className="text-center text-white/50 text-sm">
+                    We'll get back to you within 24 hours
+                  </p>
                 </form>
               </div>
             </div>
