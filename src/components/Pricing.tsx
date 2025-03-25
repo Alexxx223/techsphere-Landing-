@@ -1,8 +1,61 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Check } from 'lucide-react';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
 
 const PricingCard = ({ price, title, description, features }: { price: string; title: string; description: string; features: string[] }) => {
+  const [open, setOpen] = useState(false);
+  const { toast } = useToast();
+
+  const handleOrderClick = () => {
+    setOpen(true);
+  };
+
+  const handleConfirmOrder = () => {
+    // Construct the email parameters
+    const recipient = "techspheretechnologies1400@gmail.com";
+    const subject = encodeURIComponent(`Order: ${title} Package`);
+    const body = encodeURIComponent(
+      `Dear TechSphere Team,\n\n` +
+      `I am interested in ordering the ${title} package (${price}).\n\n` +
+      `Please find my details below:\n\n` +
+      `Name: [Your Name]\n` +
+      `Phone Number: [Your Phone Number]\n` +
+      `Company Name (if applicable): [Company Name]\n` +
+      `Best time to contact: [Preferred Contact Time]\n\n` +
+      `Additional information or requirements:\n` +
+      `[Please add any other information that might help us serve you better]\n\n` +
+      `Looking forward to working with you.\n\n` +
+      `Best regards,\n` +
+      `[Your Name]`
+    );
+
+    // Create the mailto link
+    const mailtoLink = `mailto:${recipient}?subject=${subject}&body=${body}`;
+
+    // Open the email client
+    window.location.href = mailtoLink;
+    
+    // Close the dialog
+    setOpen(false);
+    
+    // Show a toast notification
+    toast({
+      title: "Email client opened",
+      description: "Please complete your order details in the email.",
+    });
+  };
+
   return (
     <div className="glassmorphism rounded-xl overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl">
       <div className="p-6">
@@ -24,9 +77,39 @@ const PricingCard = ({ price, title, description, features }: { price: string; t
         </ul>
         
         <div className="mt-auto">
-          <a href="#contact" className="btn-primary w-full text-center">
-            Order Now
-          </a>
+          <Dialog open={open} onOpenChange={setOpen}>
+            <DialogTrigger asChild>
+              <Button 
+                className="w-full bg-gradient-to-r from-teal to-cyan hover:opacity-90 text-white"
+                onClick={handleOrderClick}
+              >
+                Order Now
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-md">
+              <DialogHeader>
+                <DialogTitle>Confirm Your Order</DialogTitle>
+                <DialogDescription>
+                  You are about to order the {title} package for {price}.
+                </DialogDescription>
+              </DialogHeader>
+              <div className="py-4">
+                <p>
+                  This will open your email client with a pre-filled message to our team. 
+                  You'll need to provide some additional details and send the email to complete your order.
+                </p>
+              </div>
+              <DialogFooter>
+                <Button variant="outline" onClick={() => setOpen(false)}>Cancel</Button>
+                <Button 
+                  onClick={handleConfirmOrder}
+                  className="bg-gradient-to-r from-teal to-cyan hover:opacity-90"
+                >
+                  Proceed to Email
+                </Button>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
     </div>
