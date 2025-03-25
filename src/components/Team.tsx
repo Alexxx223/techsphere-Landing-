@@ -16,7 +16,7 @@ const TeamMember = ({
     <div className="team-member" data-aos="fade-up" data-aos-delay={delay}>
       <div className="glassmorphism rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl">
         <div className="relative">
-          <img src={image} alt={name} className="w-full h-72 object-cover" />
+          <img src={image} alt={name} className="w-full h-72 object-cover object-top" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
         </div>
         <div className="p-6 relative z-10 -mt-16">
@@ -65,7 +65,7 @@ const Team = () => {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 justify-center">
           <TeamMember 
             image="/ronny.png"
             name="Ronald Nkhoma"
