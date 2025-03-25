@@ -29,7 +29,7 @@ const Navbar = () => {
             <a href="#" className="flex items-center space-x-2">
               {/* <span className="text-xl font-display font-bold text-white tracking-tighter">
                 Tech<span className="text-teal">Sphere</span></span> */}
-                <img src="../public/logo.png" alt="Techsphere" className="inline-block h-8 w-auto ml-2" />
+                <img src="../public/Asset 20.png" alt="Techsphere" className="inline-block h-8 w-auto ml-2" />
               
             </a>
           </div>
