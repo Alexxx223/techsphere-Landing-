@@ -10,10 +10,10 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
             <a href="#" className="flex items-center space-x-2 mb-6">
-              {/* <span className="text-xl font-display font-bold text-white tracking-tighter">
+              <span className="text-xl font-display font-bold text-white tracking-tighter">
                 Tech<span className="text-teal">Sphere</span>
-              </span> */}
-              <img src="../public/logo.png" alt="logo" className="inline-block h-8 w-auto ml-2" />
+              </span>
+              {/* <img src="../public/Asset 20.png" alt="logo" className="inline-block h-8 w-auto ml-2" /> */}
             </a>
             <p className="text-white/60 max-w-md">
               Innovative solutions for a tech-driven world. Empowering organizations by leveraging technology to drive growth, enhance customer experiences, and optimize operations.

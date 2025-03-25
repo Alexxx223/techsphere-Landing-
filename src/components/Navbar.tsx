@@ -27,9 +27,9 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <a href="#" className="flex items-center space-x-2">
-              {/* <span className="text-xl font-display font-bold text-white tracking-tighter">
-                Tech<span className="text-teal">Sphere</span></span> */}
-                <img src="../public/logo.png" alt="Techsphere" className="inline-block h-8 w-auto ml-2" />
+              <span className="text-xl font-display font-bold text-white tracking-tighter">
+                Tech<span className="text-teal">Sphere</span></span>
+                {/* <img src="../public/Asset 20.png" alt="Techsphere" className="inline-block h-8 w-auto ml-2" /> */}
               
             </a>
           </div>
