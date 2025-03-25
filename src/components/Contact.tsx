@@ -57,7 +57,7 @@ const Contact = () => {
               <Mail className="h-6 w-6 text-cyan" />
             </div>
             <h3 className="text-xl font-medium mb-2">Email Us</h3>
-            <p className="text-white/70">techspheretechnologies140@gmail.com</p>
+            <p className="text-white/70">techspheretechnologies1400@gmail.com</p>
           </div>
           
           <div className="glassmorphism rounded-xl p-6 text-center" data-aos="fade-up" data-aos-delay="200">
