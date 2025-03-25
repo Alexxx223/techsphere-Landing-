@@ -6,15 +6,15 @@ const Portfolio = () => {
   const [filter, setFilter] = useState('*');
   
   const portfolioItems = [
-    { id: 1, category: 'app', image: '/images/tyre-pit-wordmark.png', title: 'Tyre Pit Wordmark' },
-    { id: 2, category: 'app', image: '/images/tyre pit logo.jpg', title: 'Tyre Pit Logo' },
-    { id: 3, category: 'app', image: '/images/rjected banner.jpg', title: 'Promotional Banner' },
-    { id: 4, category: 'card', image: '/images/final greenred-tyre pit stop bus flyer - Made with PosterMyWall (1).jpg', title: 'Tyre Pit Flyer' },
-    { id: 5, category: 'web', image: '/images/A New Design - Made with PosterMyWall.jpg', title: 'Poster Design' },
-    { id: 6, category: 'app', image: '/images/Engine Oil Advertisement(FINAL).png', title: 'Engine Oil Ad' },
-    { id: 7, category: 'card', image: '/images/pepskay.jpeg', title: 'Pepskay Designs' },
-    { id: 8, category: 'card', image: '/images/genuine.jpeg', title: 'Genuine Branding' },
-    { id: 9, category: 'web', image: '/images/genuine2.jpeg', title: 'Genuine Poster' }
+    { id: 1, category: 'app', image: '/tyre-pit-wordmark.png', title: 'Tyre Pit Wordmark' },
+    { id: 2, category: 'app', image: '/tyre pit logo.jpg', title: 'Tyre Pit Logo' },
+    { id: 3, category: 'app', image: '/rjected banner.jpg', title: 'Promotional Banner' },
+    { id: 4, category: 'card', image: '/final greenred-tyre pit stop bus flyer - Made with PosterMyWall (1).jpg', title: 'Tyre Pit Flyer' },
+    { id: 5, category: 'web', image: '/A New Design - Made with PosterMyWall.jpg', title: 'Poster Design' },
+    { id: 6, category: 'app', image: '/Engine Oil Advertisement(FINAL).png', title: 'Engine Oil Ad' },
+    { id: 7, category: 'card', image: '/pepskay.jpeg', title: 'Pepskay Designs' },
+    { id: 8, category: 'card', image: '/genuine.jpeg', title: 'Genuine Branding' },
+    { id: 9, category: 'web', image: '/genuine2.jpeg', title: 'Genuine Poster' }
   ];
   
   const filteredItems = filter === '*' 

@@ -67,13 +67,13 @@ const Team = () => {
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <TeamMember 
-            image="/images/ronny.png"
+            image="/ronny.png"
             name="Ronald Nkhoma"
             position="Chief Executive Officer"
           />
           
           <TeamMember 
-            image="/images/alex.jpg"
+            image="/alex.jpg"
             name="Alex Mwenya"
             position="Chief Technical Officer"
             delay={300}
