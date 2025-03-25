@@ -54,7 +54,7 @@ const Navbar = () => {
             <a href="#contact" className="text-white/80 hover:text-white transition-colors">
               Contact
             </a>
-            <a href="#contact" className="btn-primary">
+            <a href="#pricing" className="btn-primary">
               Get Started
             </a>
           </nav>
