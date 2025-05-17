@@ -11,7 +11,8 @@ import QuotationGenerator from '@/components/QuotationGenerator';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import { Toaster } from "@/components/ui/toaster";
-
+import VoiceAssistant from '@/components/VoiceAssistant';
+import { useEffect } from 'react';
 const Index = () => {
   return (
     <main className="min-h-screen bg-richblack text-white overflow-x-hidden">
@@ -21,6 +22,7 @@ const Index = () => {
       <Services />
       <Pricing />
       <QuotationGenerator />
+      <VoiceAssistant />
       <Portfolio />
       <Team />
       <Contact />

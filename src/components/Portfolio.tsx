@@ -6,15 +6,15 @@ const Portfolio = () => {
   const [filter, setFilter] = useState('*');
   
   const portfolioItems = [
-    { id: 1, category: 'app', image: '/tyre-pit-wordmark.png', title: 'Tyre Pit Wordmark' },
-    { id: 2, category: 'app', image: '/tyre pit logo.jpg', title: 'Tyre Pit Logo' },
-    { id: 3, category: 'app', image: '/rjected banner.jpg', title: 'Promotional Banner' },
-    { id: 4, category: 'card', image: '/final greenred-tyre pit stop bus flyer - Made with PosterMyWall (1).jpg', title: 'Tyre Pit Flyer' },
-    { id: 5, category: 'web', image: '/A New Design - Made with PosterMyWall.jpg', title: 'Poster Design' },
+    { id: 1, category: 'app', image: '/unfiltered.png', title: 'Unfiltered Podcast logo' },
+    { id: 2, category: 'app', image: '/cleagn.png', title: 'Cleagn Logo' },
+    { id: 3, category: 'app', image: '/oil banner.jpg', title: 'Promotional oil Banner' },
+    { id: 4, category: 'app', image: '/Spectrum company profile Mock up final.png', title: 'Spectrum company profile' },
+    { id: 5, category: 'app', image: '/Spectrum Tri Fold Brochure MockUp cover.png', title: 'Spectrum Tri Fold Brochure' },
     { id: 6, category: 'app', image: '/Engine Oil Advertisement(FINAL).png', title: 'Engine Oil Ad' },
-    { id: 7, category: 'card', image: '/pepskay.jpeg', title: 'Pepskay Designs' },
-    { id: 8, category: 'card', image: '/genuine.jpeg', title: 'Genuine Branding' },
-    { id: 9, category: 'web', image: '/genuine2.jpeg', title: 'Genuine Poster' }
+    { id: 7, category: 'app', image: '/pepskay.jpeg', title: 'Pepskay Logo' },
+    { id: 8, category: 'app', image: '/genuine.jpeg', title: 'Genuine Branding' },
+    { id: 9, category: 'app', image: '/raiworx company profile.png', title: 'raiworx company profile' }
   ];
   
   const filteredItems = filter === '*' 
