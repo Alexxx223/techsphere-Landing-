@@ -15,7 +15,7 @@ const VoiceAssistant = () => {
   useEffect(() => {
     if (isCompatible && widgetRef.current) {
       const element = document.createElement('elevenlabs-convai');
-      element.setAttribute('agent-id', 'agent_01jvexkknzeheagy65794aam1k');
+      element.setAttribute('agent-id', 'agent_01jvhkgxb4f1y80pyyqwrqpw64');
       widgetRef.current.appendChild(element);
     }
   }, [isCompatible]);
