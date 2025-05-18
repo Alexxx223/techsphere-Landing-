@@ -6,15 +6,15 @@ const Portfolio = () => {
   const [filter, setFilter] = useState('*');
   
   const portfolioItems = [
-    { id: 1, category: 'app', image: '/unfiltered.png', title: 'Unfiltered Podcast logo' },
-    { id: 2, category: 'app', image: '/cleagn.png', title: 'Cleagn Logo' },
-    { id: 3, category: 'app', image: '/oil banner.jpg', title: 'Promotional oil Banner' },
-    { id: 4, category: 'app', image: '/Spectrum company profile Mock up final.png', title: 'Spectrum company profile' },
-    { id: 5, category: 'app', image: '/Spectrum Tri Fold Brochure MockUp cover.png', title: 'Spectrum Tri Fold Brochure' },
+    { id: 1, category: 'app', image: '/unfiltered.webp', title: 'Unfiltered Podcast logo' },
+    { id: 2, category: 'app', image: '/cleagn.webp', title: 'Cleagn Logo' },
+    { id: 3, category: 'app', image: '/oil banner.webp', title: 'Promotional oil Banner' },
+    { id: 4, category: 'app', image: '/Spectrum company profile Mock up final.webp', title: 'Spectrum company profile' },
+    { id: 5, category: 'app', image: '/Spectrum Tri Fold Brochure MockUp cover.webp', title: 'Spectrum Tri Fold Brochure' },
     { id: 6, category: 'app', image: '/Engine Oil Advertisement(FINAL).png', title: 'Engine Oil Ad' },
     { id: 7, category: 'app', image: '/pepskay.jpeg', title: 'Pepskay Logo' },
     { id: 8, category: 'app', image: '/genuine.jpeg', title: 'Genuine Branding' },
-    { id: 9, category: 'app', image: '/raiworx company profile.png', title: 'raiworx company profile' }
+    { id: 9, category: 'app', image: '/raiworx company profile.webp', title: 'raiworx company profile' }
   ];
   
   const filteredItems = filter === '*' 
