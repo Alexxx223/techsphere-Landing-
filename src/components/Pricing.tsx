@@ -129,7 +129,7 @@ const Pricing = () => {
       ]
     },
     {
-      price: "K2,499",
+      price: "K3,499",
       title: "Business Package",
       description: "Comprehensive branding solution for growing businesses.",
       features: [
@@ -140,7 +140,7 @@ const Pricing = () => {
       ]
     },
     {
-      price: "K3,999",
+      price: "K5,999",
       title: "Premium Package",
       description: "Complete digital presence for established businesses.",
       features: [

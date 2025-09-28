@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import html2pdf from 'html2pdf.js';
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -14,17 +15,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
-import { Check, Download } from 'lucide-react';
-import jsPDF from 'jspdf';
-import autoTable from 'jspdf-autotable';
-import 'jspdf-autotable'; // Import for side effects
-
-// Extend the jsPDF type to include autoTable
-declare module 'jspdf' {
-  interface jsPDF {
-    autoTable: (options: any) => jsPDF;
-  }
-}
+import { Check, Download, Mail } from 'lucide-react';
 
 interface Service {
   id: string;
@@ -53,6 +44,7 @@ const QuotationGenerator = () => {
   const [discount, setDiscount] = useState<number>(0);
   const [comments, setComments] = useState<string>('');
   const [showConfirmDialog, setShowConfirmDialog] = useState<boolean>(false);
+  const [showQuotationPreview, setShowQuotationPreview] = useState<boolean>(false);
   const [clientInfo, setClientInfo] = useState<ClientInfo>({
     name: '',
     email: '',
@@ -75,8 +67,8 @@ const QuotationGenerator = () => {
   
   const handleDiscountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseFloat(e.target.value);
-    // Limit discount to maximum 20%
-    setDiscount(isNaN(value) ? 0 : Math.min(20, Math.max(0, value)));
+    // Limit discount to maximum 5%
+    setDiscount(isNaN(value) ? 0 : Math.min(5, Math.max(0, value)));
   };
   
   const handleClientInfoChange = (field: keyof ClientInfo, value: string) => {
@@ -106,297 +98,206 @@ const QuotationGenerator = () => {
     
     return true;
   };
-  
-  const generateQuotePDF = (): string => {
-    try { // Wrap the entire generation in a try...catch if needed
-      console.log("Starting PDF generation");
-      const doc = new jsPDF();
-      console.log("jsPDF instance created");
 
-      const today = new Date();
-      const expiryDate = new Date(today);
-      expiryDate.setDate(today.getDate() + 2); // 2 days validity
+  // QuotationPreview component for HTML-based quotation
+  const QuotationPreview = () => {
+    const today = new Date();
+    const expiryDate = new Date(today);
+    expiryDate.setDate(today.getDate() + 2);
+    
+    const selectedServices = services.filter(service => service.checked);
+    const startDate = new Date();
+    const endDate = new Date(startDate);
+    endDate.setDate(startDate.getDate() + 5);
 
-      // Check if autoTable is available before using it
-      // Note: Usually, if the import succeeded, this check isn't strictly necessary,
-      // but it doesn't hurt during debugging. Ensure 'jspdf-autotable' is installed.
-      if (typeof doc.autoTable !== 'function') {
-         console.error("autoTable is not available on jsPDF instance. Did you install jspdf-autotable?");
-         toast({
-           title: "PDF Generation Error",
-           description: "Failed to load PDF table generation library.",
-           variant: "destructive",
-         });
-         return ""; // Return empty string or throw an error
-      }
+    return (
+      <div id="quote-print-root" className="quotation-preview bg-white text-black p-8 max-w-4xl mx-auto">
+        
+        {/* Header */}
+        <div className="text-center mb-8">
+          <h1 className="text-2xl font-bold text-teal-600 mb-2">Techsphere Technologies</h1>
+          <h2 className="text-lg font-semibold">Graphic Design Quotation</h2>
+        </div>
 
-      // --- Add Content ---
+        {/* Company and Client Information */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+          <div>
+            <h3 className="font-bold text-sm mb-3">Company's Information:</h3>
+            <div className="text-sm space-y-1">
+              <p>Techsphere Technologies</p>
+              <p>techspheretechnologies1400@gmail.com</p>
+              <p>+260 772792882</p>
+            </div>
+          </div>
+          
+          <div>
+            <h3 className="font-bold text-sm mb-3">Client's Information:</h3>
+            <div className="text-sm space-y-1">
+              <p><strong>Name:</strong> {clientInfo.name}</p>
+              <p><strong>Email:</strong> {clientInfo.email}</p>
+              <p><strong>Phone:</strong> {clientInfo.phone}</p>
+              <p><strong>Company:</strong> {clientInfo.company || "N/A"}</p>
+            </div>
+          </div>
+        </div>
 
-      // Add logo (Potential Issue: Ensure '/public/logo.png' is accessible in your build)
-      // If this causes issues, try importing the image or using a Base64 string.
-      // For now, let's assume the path works or comment it out if it fails.
-      try {
-          const imageUrl = '/logo.png'; // In many setups (like Vite/CRA), '/logo.png' refers to the public folder root
-          // Check if the image exists before adding - this basic check might not be enough
-          // You might need a more robust way to handle image loading failures.
-          // For simplicity, we'll proceed, but be aware this can throw errors if the image isn't found.
-          doc.addImage(imageUrl, 'PNG', 105, 15, 30, 30, undefined, 'FAST');
-          console.log("Logo added (potentially)");
-      } catch (imgError) {
-          console.error("Failed to add logo:", imgError);
-          // Optionally inform the user or continue without the logo
-          toast({
-              title: "Warning",
-              description: "Could not load the company logo for the PDF.",
-              variant: "default", // Use a less intrusive variant
-          });
-      }
+        {/* Project Details */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+          <div>
+            <h3 className="font-bold text-sm mb-2">Project Title:</h3>
+            <p className="text-sm">{selectedServices[0]?.name || "Custom Design Project"}</p>
+          </div>
+          <div>
+            <h3 className="font-bold text-sm mb-2">Date:</h3>
+            <p className="text-sm">{today.toLocaleDateString('en-GB', { 
+              day: '2-digit', 
+              month: 'short', 
+              year: '2-digit' 
+            })}</p>
+          </div>
+        </div>
 
+        {/* Greeting and Overview */}
+        <div className="mb-8">
+          <p className="text-sm mb-4">Dear {clientInfo.name},</p>
+          <h3 className="font-bold text-sm mb-2">Project Overview:</h3>
+          <p className="text-sm">
+            This quote contains costs for the requested design services. My understanding of your requirements, 
+            based on your selections, is reflected in the services listed below.
+          </p>
+        </div>
 
-      // Add header text
-      console.log("Adding header text");
-      doc.setFontSize(18);
-      doc.setTextColor(0, 77, 77); // Dark teal color
-      doc.text("Techsphere", 105, 55, { align: "center" });
-      doc.setFontSize(14);
-      doc.text("Graphic Design Quotation", 105, 65, { align: "center" });
+        {/* Services Table */}
+        <div className="mb-8">
+          <h3 className="font-bold text-sm mb-4">Design Fee Breakdown:</h3>
+          <table className="print-table w-full border-collapse border border-gray-300">
+            <thead>
+              <tr className="bg-gray-100">
+                <th className="border border-gray-300 p-3 text-left">Task Description</th>
+                <th className="border border-gray-300 p-3 text-center">Quantity</th>
+                <th className="border border-gray-300 p-3 text-right">Price per quantity</th>
+              </tr>
+            </thead>
+            <tbody>
+              {selectedServices.map((service, index) => (
+                <tr key={index}>
+                  <td className="border border-gray-300 p-3">{service.name}</td>
+                  <td className="border border-gray-300 p-3 text-center">1</td>
+                  <td className="border border-gray-300 p-3 text-right">K {service.price.toFixed(2)}</td>
+                </tr>
+              ))}
+              <tr className="font-bold">
+                <td className="border border-gray-300 p-3" colSpan={2}>Total:</td>
+                <td className="border border-gray-300 p-3 text-right">K {discountedTotal.toFixed(2)}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-      // Add a horizontal line
-      doc.setDrawColor(0, 77, 77);
-      doc.setLineWidth(0.5);
-      doc.line(20, 70, 190, 70);
+        {/* Timeline Table */}
+        <div className="mb-8">
+          <h3 className="font-bold text-sm mb-4">Project Timeline:</h3>
+          <table className="print-table w-full border-collapse border border-gray-300">
+            <thead>
+              <tr className="bg-gray-100">
+                <th className="border border-gray-300 p-3 text-left">Task</th>
+                <th className="border border-gray-300 p-3 text-center">Start Date</th>
+                <th className="border border-gray-300 p-3 text-center">End Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              {selectedServices.map((service, index) => (
+                <tr key={index}>
+                  <td className="border border-gray-300 p-3">{service.name}</td>
+                  <td className="border border-gray-300 p-3 text-center">
+                    {startDate.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: '2-digit' })}
+                  </td>
+                  <td className="border border-gray-300 p-3 text-center">
+                    {endDate.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: '2-digit' })}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
 
-      // Company information (left side)
-      doc.setFontSize(11);
-      doc.setTextColor(0, 0, 0); // Reset to black
-      doc.text("Company's Information:", 20, 80);
-      doc.setFontSize(10);
-      doc.text("Techsphere Technologies", 20, 88);
-      doc.text("Email: techspheretechnologies1400@gmail.com", 20, 96);
-      doc.text("Phone: +260 772792882", 20, 104);
+        {/* Payment Terms */}
+        <div className="mb-8">
+          <h3 className="font-bold text-sm mb-3">Payment Terms:</h3>
+          <div className="text-sm space-y-1">
+            <p>• 50% deposit required upon acceptance.</p>
+            <p>• Balance due upon completion.</p>
+            <p>• Payment: 0772792882 or 0761525239 (Mobile Money)</p>
+          </div>
+        </div>
 
-      // Client information (right side)
-      doc.setFontSize(11);
-      doc.text("Client's Information:", 120, 80);
-      doc.setFontSize(10);
-      doc.text(`Name: ${clientInfo.name}`, 120, 88);
-      doc.text(`Email: ${clientInfo.email}`, 120, 96);
-      doc.text(`Phone: ${clientInfo.phone}`, 120, 104);
-      doc.text(`Company: ${clientInfo.company || "N/A"}`, 120, 112);
+        {/* Revisions and Validity */}
+        <div className="mb-8">
+          <h3 className="font-bold text-sm mb-3">Revisions:</h3>
+          <p className="text-sm">
+            Quote valid for 2 days ({today.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: '2-digit' })} to {expiryDate.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: '2-digit' })})
+          </p>
+        </div>
 
-      // Project Title and Date
-      doc.setFontSize(11);
-      doc.text("Project Title:", 20, 128);
-      doc.text("Date:", 120, 128);
+        {/* Additional Comments */}
+        {comments && comments.trim() && (
+          <div className="mb-8 page-break">
+            <h3 className="font-bold text-sm mb-3">Additional Comments:</h3>
+            <p className="text-sm whitespace-pre-wrap">{comments}</p>
+          </div>
+        )}
 
-      doc.setFontSize(10);
-      const projectTitle = services.find(service => service.checked)?.name || "Custom Design";
-      doc.text(projectTitle, 20, 136);
-      doc.text(today.toLocaleDateString(), 120, 136);
+        {/* Closing */}
+        <div className="mt-12">
+          <p className="text-sm mb-4">Thank you for considering us for your project.</p>
+          <p className="text-sm">Best Regards,</p>
+          <p className="text-sm font-bold mt-2">TechSphere Technologies</p>
+        </div>
+      </div>
+    );
+  };
 
-      // Job Reference Number
-      doc.text("Job Reference Number:", 120, 144);
-      doc.text(`QT-${Math.floor(Math.random() * 10000)}`, 120, 152);
-
-      // Project Overview
-      doc.setFontSize(11);
-      doc.text("Project Overview:", 20, 168);
-      doc.setFontSize(10);
-      // Use splitTextToSize for potentially long overview text if needed
-      const overviewText = "This quote contains costs for the requested design services. My understanding of your requirements, based on your selections, is reflected in the services listed below.";
-      const splitOverview = doc.splitTextToSize(overviewText, 170); // Max width 170
-      doc.text(splitOverview, 20, 176);
-
-      // Calculate starting Y position for the Design Fee section based on overview text lines
-      let yPos = 176 + (splitOverview.length * 5); // Adjust multiplier as needed for line spacing
-
-      // Design Fee Breakdown
-      yPos += 10; // Add some space
-      doc.setFontSize(11);
-      doc.text("Design Fee Breakdown:", 20, yPos);
-      yPos += 8; // Space before table
-
-      // Services table
-      console.log("Creating services table");
-      const selectedServices = services.filter(service => service.checked);
-      const tableColumn = ["Task Description", "Quantity", "Price per quantity"];
-      const tableRows = selectedServices.map(service => [
-        service.name,
-        "1",
-        `K ${service.price.toFixed(2)}` // Format price consistently
-      ]);
-
-      doc.autoTable({ // Use doc.autoTable
-        head: [tableColumn],
-        body: tableRows,
-        startY: yPos,
-        theme: 'grid',
-        styles: { fontSize: 10 },
-        headStyles: { fillColor: [0, 77, 77] }, // Teal header
-        margin: { left: 20, right: 20 }
-      });
-
-      // Get Y position after the table
-      let finalY = (doc as any).lastAutoTable.finalY || yPos + 30; // Use fallback
-
-      // Add subtotal, discount, and total
-      finalY += 5; // Add some space
-      doc.setDrawColor(200, 200, 200); // Light grey line
-      doc.setLineWidth(0.3);
-      doc.line(120, finalY, 190, finalY); // Line above total
-      finalY += 8;
-
-      doc.setFontSize(10);
-      doc.text("Subtotal:", 130, finalY);
-      doc.text(`K ${totalPrice.toFixed(2)}`, 160, finalY, { align: 'right' }); // Align right
-
-      if (discount > 0) {
-        finalY += 7;
-        doc.text(`Discount (${discount}%):`, 130, finalY);
-        doc.text(`-K ${(totalPrice * (discount / 100)).toFixed(2)}`, 160, finalY, { align: 'right' });
-        finalY += 7;
-        doc.setFontSize(11);
-        doc.setFont('helvetica', 'bold');
-        doc.text("Total:", 130, finalY);
-        doc.text(`K ${discountedTotal.toFixed(2)}`, 160, finalY, { align: 'right' });
-        doc.setFont('helvetica', 'normal'); // Reset font style
-      } else {
-        finalY += 7;
-        doc.setFontSize(11);
-        doc.setFont('helvetica', 'bold');
-        doc.text("Total:", 130, finalY);
-        doc.text(`K ${totalPrice.toFixed(2)}`, 160, finalY, { align: 'right' });
-        doc.setFont('helvetica', 'normal'); // Reset font style
-      }
-
-      // Reset Y position for next section
-      yPos = finalY + 15;
-
-      // Check if content exceeds page height, add new page if necessary
-      const checkAndAddPage = (currentY: number, spaceNeeded: number): number => {
-        if (currentY + spaceNeeded > doc.internal.pageSize.height - 30) { // Check with margin
-           doc.addPage();
-           return 30; // Return starting Y position for new page
-        }
-        return currentY; // Return current Y position
-      };
-
-      yPos = checkAndAddPage(yPos, 30); // Check space for timeline header+table
-
-      // Project Timeline
-      doc.setFontSize(11);
-      doc.text("Project Timeline:", 20, yPos);
-      yPos += 10;
-
-      // Timeline table
-      const timelineColumns = ["Task", "Estimated Start", "Estimated End"];
-      const startDate = new Date();
-      const endDate = new Date(startDate);
-      endDate.setDate(startDate.getDate() + 7); // Default 1 week project duration
-
-      const timelineRows = selectedServices.map(service => [
-        service.name,
-        startDate.toLocaleDateString(),
-        endDate.toLocaleDateString()
-      ]);
-
-      doc.autoTable({
-        head: [timelineColumns],
-        body: timelineRows,
-        startY: yPos,
-        theme: 'grid',
-        styles: { fontSize: 10 },
-        headStyles: { fillColor: [0, 77, 77] },
-        margin: { left: 20, right: 20 }
-      });
-
-      yPos = (doc as any).lastAutoTable.finalY + 15;
-
-      // --- Terms, Revisions, Signature ---
-      const termsSpaceNeeded = 120; // Approximate space needed for the rest
-      yPos = checkAndAddPage(yPos, termsSpaceNeeded);
-
-      // Payment Terms
-      doc.setFontSize(11);
-      doc.text("Payment Terms:", 20, yPos);
-      yPos += 8;
-      doc.setFontSize(10);
-      const paymentText = "A deposit of 50% is due upon acceptance of this quote. The remaining balance will be due upon project completion. Payment can be made via airtel or mtn mobile wallet through the following numbers - +260 772792882 or +260 761525239.";
-      const splitPayment = doc.splitTextToSize(paymentText, 170);
-      doc.text(splitPayment, 20, yPos);
-      yPos += (splitPayment.length * 5) + 8; // Adjust spacing
-
-      // Revisions & Validity
-      doc.setFontSize(11);
-      doc.text("Revisions & Validity:", 20, yPos);
-      yPos += 8;
-      doc.setFontSize(10);
-      const revisionsText = `This quote includes only the specified tasks. Any additional tasks may result in additional charges. Please review this quote thoroughly. If you agree with the outlined project scope, deliverables, and costs, please sign below and return a copy to us. This quote is valid for 2 days, from ${today.toLocaleDateString()} to ${expiryDate.toLocaleDateString()}.`;
-      const splitRevisions = doc.splitTextToSize(revisionsText, 170);
-      doc.text(splitRevisions, 20, yPos);
-      yPos += (splitRevisions.length * 5) + 8;
-
-      // Thank you note
-      yPos = checkAndAddPage(yPos, 40); // Check space before signature
-      const thankYouText = "Thank you for considering us for your project. We look forward to working with you.";
-      const splitThankYou = doc.splitTextToSize(thankYouText, 170);
-      doc.text(splitThankYou, 20, yPos);
-      yPos += (splitThankYou.length * 5) + 16; // More space before signature
-
-      // Signature
-      doc.text("Best Regards,", 20, yPos);
-      yPos += 8;
-      doc.text("Techsphere Technologies", 20, yPos);
-
-      // Add comments if any (on a new page)
-      if (comments) {
-        doc.addPage();
-        doc.setFontSize(12);
-        doc.text("Additional Comments:", 20, 20);
-        doc.setFontSize(10);
-        // Split long comments to fit on the page
-        const splitComments = doc.splitTextToSize(comments, 170); // Use 170 width margin
-        doc.text(splitComments, 20, 30);
-      }
-
-      // --- Generate Output ---
-      console.log("PDF generation completed successfully");
-      return doc.output('datauristring'); // Generate base64 string of the PDF
-
-    } catch (error) {
-      console.error("PDF generation failed:", error);
+  const handleDownload = () => {
+    const element = document.getElementById('quote-print-root');
+    if (!element) {
       toast({
-        title: "PDF Generation Error",
-        description: `An error occurred while creating the PDF: ${error.message || 'Unknown error'}`,
+        title: "Error",
+        description: "Could not find quotation content to download.",
         variant: "destructive",
       });
-      return ""; // Return empty string on failure
-    }
-  };
-  
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!validateForm()) {
       return;
     }
-    
-    setShowConfirmDialog(true);
+
+    const timestamp = new Date().toISOString().slice(0, 10);
+    const filename = `Quotation-${clientInfo.name.replace(/\s+/g, '_')}-${timestamp}.pdf`;
+
+    const options = {
+      margin: [0.5, 0.5, 0.5, 0.5],
+      filename,
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2, useCORS: true },
+      jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' },
+    };
+
+    html2pdf().from(element).set(options).save()
+      .then(() => {
+        toast({
+          title: "Download Started",
+          description: "Your PDF is being downloaded.",
+          variant: "default",
+        });
+      })
+      .catch((error) => {
+        console.error("PDF generation failed:", error);
+        toast({
+          title: "Download Failed",
+          description: "Unable to generate PDF. Please try again.",
+          variant: "destructive",
+        });
+      });
   };
-  
-  const handleConfirmQuote = () => {
-    // Generate the PDF
-    const pdfDataUri = generateQuotePDF();
-    
-    // Create a temporary link to download the PDF
-    const link = document.createElement('a');
-    link.href = pdfDataUri;
-    link.download = `TechSphere_Quotation_${new Date().toISOString().slice(0,10)}.pdf`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    
-    // Prepare email content
+
+  const handleEmailShare = () => {
     const selectedServices = services.filter(service => service.checked)
       .map(service => `${service.name} (K${service.price})`)
       .join(", ");
@@ -412,37 +313,42 @@ const QuotationGenerator = () => {
       `Phone: ${clientInfo.phone}\n` +
       `Company: ${clientInfo.company || "N/A"}\n\n` +
       `Additional comments: ${comments || "None"}\n\n` +
-      `I have downloaded the quotation PDF and will send the signed copy back to you.\n\n` +
+      `Please find the quotation details above. I will print and sign the quotation if we proceed.\n\n` +
       `Best regards,\n` +
       `${clientInfo.name}`
     );
     
-    // Create the mailto link
     const mailtoLink = `mailto:techspheretechnologies1400@gmail.com?subject=${emailSubject}&body=${emailBody}`;
-    
-    // Open the email client
     window.location.href = mailtoLink;
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
     
-    // Close dialog and show toast
+    if (!validateForm()) {
+      return;
+    }
+    
+    setShowConfirmDialog(true);
+  };
+
+  const handleConfirmQuote = () => {
+    // Final validation before showing quotation
+    if (!validateForm()) {
+      return;
+    }
+    
+    // Close confirmation dialog and show quotation preview
     setShowConfirmDialog(false);
+    setShowQuotationPreview(true);
     
     toast({
-      title: "Quotation generated successfully",
-      description: "Your quotation has been downloaded. Please sign and return it to us via email.",
-    });
-    
-    // Reset form for new quote
-    setServices(services.map(service => ({ ...service, checked: false })));
-    setDiscount(0);
-    setComments('');
-    setClientInfo({
-      name: '',
-      email: '',
-      phone: '',
-      company: ''
+      title: "Success!",
+      description: "Quotation generated successfully. You can now download it as PDF or email it.",
+      variant: "default",
     });
   };
-  
+
   return (
     <section className="py-12 bg-gradient-to-r from-background/80 to-background">
       <div className="container mx-auto px-4">
@@ -541,13 +447,13 @@ const QuotationGenerator = () => {
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="discount">Discount (%) - Max 20%</Label>
+                  <Label htmlFor="discount">Discount (%) - Max 5%</Label>
                   <Input
                     id="discount"
                     type="number"
                     min="0"
-                    max="20"
-                    placeholder="Enter discount percentage (0-20%)"
+                    max="5"
+                    placeholder="Enter discount percentage (0-5%)"
                     value={discount || ''}
                     onChange={handleDiscountChange}
                   />
@@ -593,7 +499,7 @@ const QuotationGenerator = () => {
             <DialogHeader>
               <DialogTitle>Confirm Your Quotation</DialogTitle>
               <DialogDescription>
-                Your quotation is ready to be generated and downloaded.
+                Your quotation is ready to be generated. You can print it or email it directly to our team.
               </DialogDescription>
             </DialogHeader>
             
@@ -617,8 +523,8 @@ const QuotationGenerator = () => {
                 By confirming, you will:
               </p>
               <ul className="text-sm text-white/70 list-disc pl-5 space-y-1 mt-2">
-                <li>Download a PDF of your quotation</li>
-                <li>Send an email notification to our team</li>
+                <li>Download your quotation as PDF</li>
+                <li>Email quotation directly to our team</li>
                 <li>After signing, please send the signed quotation back to us</li>
               </ul>
             </div>
@@ -631,8 +537,43 @@ const QuotationGenerator = () => {
                 onClick={handleConfirmQuote}
                 className="bg-gradient-to-r from-teal to-cyan hover:opacity-90 gap-2"
               >
+                <Check className="h-4 w-4" />
+                Generate Quotation
+              </Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+
+        {/* Quotation Preview Dialog */}
+        <Dialog open={showQuotationPreview} onOpenChange={setShowQuotationPreview}>
+          <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto">
+            <DialogHeader className="no-print">
+              <DialogTitle>Quotation Preview</DialogTitle>
+              <DialogDescription>
+                Review your quotation below. You can download it as PDF or email it directly.
+              </DialogDescription>
+            </DialogHeader>
+            
+            <QuotationPreview />
+            
+            <DialogFooter className="no-print flex flex-col sm:flex-row gap-4">
+              <Button variant="outline" onClick={() => setShowQuotationPreview(false)}>
+                Close
+              </Button>
+              <Button 
+                onClick={handleEmailShare}
+                variant="outline"
+                className="gap-2"
+              >
+                <Mail className="h-4 w-4" />
+                Email Quotation
+              </Button>
+              <Button 
+                onClick={handleDownload}
+                className="bg-gradient-to-r from-teal to-cyan hover:opacity-90 gap-2"
+              >
                 <Download className="h-4 w-4" />
-                Generate & Download PDF
+                Download PDF
               </Button>
             </DialogFooter>
           </DialogContent>
