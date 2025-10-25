@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -9,13 +10,13 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
-            <a href="#" className="flex items-center space-x-2 mb-6">
+            <Link to="/" className="flex items-center space-x-2 mb-6">
               <span className="text-xl font-display font-bold text-white tracking-tighter">
                 Tech<span className="text-teal">Sphere</span>
               </span>
               {/* <img src="../public/Asset 20.png" alt="logo" className="inline-block h-8 w-auto ml-2" /> */}
-            </a>
-            <p className="text-white/60 max-w-md">
+            </Link>
+            <p className="madeinhaus-body-base max-w-md">
               Innovative solutions for a tech-driven world. Empowering organizations by leveraging technology to drive growth, enhance customer experiences, and optimize operations.
             </p>
             
@@ -39,85 +40,85 @@ const Footer = () => {
           </div>
           
           <div>
-            <h3 className="text-white font-medium mb-4">Useful Links</h3>
+            <h3 className="madeinhaus-heading text-heading-sm mb-4">Useful Links</h3>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="text-white/60 hover:text-teal transition-colors flex items-center">
+                <Link to="/" className="text-white/60 hover:text-teal transition-colors flex items-center">
                   <svg className="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#about" className="text-white/60 hover:text-teal transition-colors flex items-center">
+                <Link to="/about" className="text-white/60 hover:text-teal transition-colors flex items-center">
                   <svg className="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                   About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#services" className="text-white/60 hover:text-teal transition-colors flex items-center">
+                <Link to="/services" className="text-white/60 hover:text-teal transition-colors flex items-center">
                   <svg className="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                   Services
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-white/60 hover:text-teal transition-colors flex items-center">
+                <Link to="/contact" className="text-white/60 hover:text-teal transition-colors flex items-center">
                   <svg className="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
-                  Terms of Service
-                </a>
+                  Contact Us
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-white/60 hover:text-teal transition-colors flex items-center">
+                <Link to="/portfolio" className="text-white/60 hover:text-teal transition-colors flex items-center">
                   <svg className="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
-                  Privacy Policy
-                </a>
+                  Portfolio
+                </Link>
               </li>
             </ul>
           </div>
           
           <div>
-            <h3 className="text-white font-medium mb-4">Our Services</h3>
+            <h3 className="madeinhaus-heading text-heading-sm mb-4">Our Services</h3>
             <ul className="space-y-3">
               <li>
-                <a href="#services" className="text-white/60 hover:text-teal transition-colors flex items-center">
+                <Link to="/services" className="text-white/60 hover:text-teal transition-colors flex items-center">
                   <svg className="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                   Web Development
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#services" className="text-white/60 hover:text-teal transition-colors flex items-center">
+                <Link to="/services" className="text-white/60 hover:text-teal transition-colors flex items-center">
                   <svg className="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                   Graphic Design
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#services" className="text-white/60 hover:text-teal transition-colors flex items-center">
+                <Link to="/services" className="text-white/60 hover:text-teal transition-colors flex items-center">
                   <svg className="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                   Mobile App Design
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#services" className="text-white/60 hover:text-teal transition-colors flex items-center">
+                <Link to="/services" className="text-white/60 hover:text-teal transition-colors flex items-center">
                   <svg className="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                   IT Consulting
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -129,9 +130,9 @@ const Footer = () => {
           </p>
           
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="text-white/40 hover:text-white text-sm">Privacy Policy</a>
-            <a href="#" className="text-white/40 hover:text-white text-sm">Terms of Service</a>
-            <a href="#" className="text-white/40 hover:text-white text-sm">Cookie Policy</a>
+            <Link to="/privacy" className="text-white/40 hover:text-white text-sm">Privacy Policy</Link>
+            <Link to="/terms" className="text-white/40 hover:text-white text-sm">Terms of Service</Link>
+            <Link to="/cookies" className="text-white/40 hover:text-white text-sm">Cookie Policy</Link>
           </div>
         </div>
         

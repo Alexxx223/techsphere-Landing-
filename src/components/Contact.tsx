@@ -37,8 +37,8 @@ const Contact = () => {
     <section id="contact" className="py-24 bg-richblack">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16" data-aos="fade-up">
-          <h2 className="heading-lg mb-6">Contact</h2>
-          <p className="subheading max-w-3xl mx-auto">
+          <h2 className="madeinhaus-display-md mb-6">Contact</h2>
+          <p className="madeinhaus-body-large max-w-3xl mx-auto">
             Feel free to reach out to us! We're here to assist with any inquiries or collaborations.
           </p>
         </div>
@@ -48,31 +48,31 @@ const Contact = () => {
             <div className="inline-flex items-center justify-center h-14 w-14 rounded-full bg-white/5 border border-white/10 mb-4">
               <MapPin className="h-6 w-6 text-teal" />
             </div>
-            <h3 className="text-xl font-medium mb-2">Our Address</h3>
-            <p className="text-white/70">Lusaka, Zambia</p>
+            <h3 className="madeinhaus-heading text-heading-sm mb-2">Our Address</h3>
+            <p className="madeinhaus-body-base">Lusaka, Zambia</p>
           </div>
           
           <div className="glassmorphism rounded-xl p-6 text-center" data-aos="fade-up" data-aos-delay="100">
             <div className="inline-flex items-center justify-center h-14 w-14 rounded-full bg-white/5 border border-white/10 mb-4">
               <Mail className="h-6 w-6 text-cyan" />
             </div>
-            <h3 className="text-xl font-medium mb-2">Email Us</h3>
-            <p className="text-white/70">techspheretechnologies1400@gmail.com</p>
+            <h3 className="madeinhaus-heading text-heading-sm mb-2">Email Us</h3>
+            <p className="madeinhaus-body-base">techspheretechnologies1400@gmail.com</p>
           </div>
           
           <div className="glassmorphism rounded-xl p-6 text-center" data-aos="fade-up" data-aos-delay="200">
             <div className="inline-flex items-center justify-center h-14 w-14 rounded-full bg-white/5 border border-white/10 mb-4">
               <Phone className="h-6 w-6 text-teal" />
             </div>
-            <h3 className="text-xl font-medium mb-2">Call Us</h3>
-            <p className="text-white/70">+260 772792882</p>
+            <h3 className="madeinhaus-heading text-heading-sm mb-2">Call Us</h3>
+            <p className="madeinhaus-body-base">+260 772792882</p>
           </div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8">
           <div className="glassmorphism rounded-xl p-8" data-aos="fade-up">
-            <h3 className="text-xl font-medium mb-6">We'd love to hear from you</h3>
-            <p className="text-white/70 mb-8">
+            <h3 className="madeinhaus-heading text-heading-sm mb-6">We'd love to hear from you</h3>
+            <p className="madeinhaus-body-base mb-8">
               Let us know how we can help with your business needs. 
               Whether you're interested in our services, partnership opportunities, 
               or just want to say hello, we're here for you.
@@ -85,7 +85,7 @@ const Contact = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
                   </svg>
                 </div>
-                <span className="text-white/70">Available 24/7 for urgent inquiries</span>
+                <span className="madeinhaus-body-base">Available 24/7 for urgent inquiries</span>
               </div>
               
               <div className="flex items-center">
@@ -94,7 +94,7 @@ const Contact = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
                 </div>
-                <span className="text-white/70">100% secure communication</span>
+                <span className="madeinhaus-body-base">100% secure communication</span>
               </div>
             </div>
           </div>

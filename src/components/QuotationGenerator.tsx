@@ -353,8 +353,8 @@ const QuotationGenerator = () => {
     <section className="py-12 bg-gradient-to-r from-background/80 to-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12" data-aos="fade-up">
-          <h2 className="heading-md mb-6">Create Your Own Quote</h2>
-          <p className="subheading max-w-3xl mx-auto">
+          <h2 className="madeinhaus-display-sm mb-6">Create Your Own Quote</h2>
+          <p className="madeinhaus-body-large max-w-3xl mx-auto">
             Select the services you need and get an instant quotation tailored to your requirements.
           </p>
         </div>
@@ -363,7 +363,7 @@ const QuotationGenerator = () => {
           <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Services Selection - Left Side */}
             <div className="space-y-6">
-              <h3 className="text-xl font-semibold text-teal mb-4">Available Services</h3>
+              <h3 className="madeinhaus-heading text-heading-sm text-teal mb-4">Available Services</h3>
               
               <div className="space-y-4">
                 {services.map(service => (
@@ -387,7 +387,7 @@ const QuotationGenerator = () => {
               
               {/* Client Information */}
               <div className="mt-8">
-                <h3 className="text-xl font-semibold text-teal mb-4">Your Information</h3>
+                <h3 className="madeinhaus-heading text-heading-sm text-teal mb-4">Your Information</h3>
                 <div className="space-y-4">
                   <div className="space-y-2">
                     <Label htmlFor="client-name">Full Name *</Label>
@@ -438,7 +438,7 @@ const QuotationGenerator = () => {
             
             {/* Quote Summary - Right Side */}
             <div className="space-y-6">
-              <h3 className="text-xl font-semibold text-teal mb-4">Quote Summary</h3>
+              <h3 className="madeinhaus-heading text-heading-sm text-teal mb-4">Quote Summary</h3>
               
               <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-6 space-y-4">
                 <div className="flex justify-between items-center border-b border-white/10 pb-4">

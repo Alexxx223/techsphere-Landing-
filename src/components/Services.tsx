@@ -34,8 +34,8 @@ const Services = () => {
       
       <div className="container mx-auto px-4">
         <div className="text-center mb-16" data-aos="fade-up">
-          <h2 className="heading-lg mb-6">Our Services</h2>
-          <p className="subheading max-w-3xl mx-auto">
+          <h2 className="madeinhaus-display-md mb-6">Our Services</h2>
+          <p className="madeinhaus-body-large max-w-3xl mx-auto">
             At TechSphere, we offer a wide range of technology services that drive innovation and create value for our clients. 
             From developing digital strategies to implementing advanced IT solutions, we are here to help your business thrive.
           </p>
@@ -47,8 +47,8 @@ const Services = () => {
               <div className="inline-flex items-center justify-center h-14 w-14 rounded-lg bg-white/5 border border-white/10 mb-6">
                 {service.icon}
               </div>
-              <h4 className="text-xl font-medium mb-3">{service.title}</h4>
-              <p className="text-white/70">{service.description}</p>
+              <h4 className="madeinhaus-heading text-heading-sm mb-3">{service.title}</h4>
+              <p className="madeinhaus-body-base">{service.description}</p>
             </div>
           ))}
         </div>

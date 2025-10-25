@@ -1,102 +1,123 @@
 
 import React, { useState } from 'react';
 import { cn } from "@/lib/utils";
+import PortfolioCard from './PortfolioCard';
+import ProjectDetailModal from './ProjectDetailModal';
+import { portfolioProjects, categories, getProjectsByCategory, PortfolioProject } from '@/data/portfolioProjects';
 
 const Portfolio = () => {
-  const [filter, setFilter] = useState('*');
+  const [activeFilter, setActiveFilter] = useState('all');
+  const [selectedProject, setSelectedProject] = useState<PortfolioProject | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   
-  const portfolioItems = [
-    { id: 1, category: 'app', image: '/unfiltered.webp', title: 'Unfiltered Podcast logo' },
-    { id: 2, category: 'app', image: '/cleagn.webp', title: 'Cleagn Logo' },
-    { id: 3, category: 'app', image: '/oil banner.webp', title: 'Promotional oil Banner' },
-    { id: 4, category: 'app', image: '/Spectrum company profile Mock up final.webp', title: 'Spectrum company profile' },
-    { id: 5, category: 'app', image: '/Spectrum Tri Fold Brochure MockUp cover.webp', title: 'Spectrum Tri Fold Brochure' },
-    { id: 6, category: 'app', image: '/Engine Oil Advertisement(FINAL).png', title: 'Engine Oil Ad' },
-    { id: 7, category: 'app', image: '/pepskay.jpeg', title: 'Pepskay Logo' },
-    { id: 8, category: 'app', image: '/genuine.jpeg', title: 'Genuine Branding' },
-    { id: 9, category: 'app', image: '/raiworx company profile.webp', title: 'raiworx company profile' }
-  ];
+  const filteredProjects = getProjectsByCategory(activeFilter);
   
-  const filteredItems = filter === '*' 
-    ? portfolioItems 
-    : portfolioItems.filter(item => `filter-${item.category}` === filter);
+  const categoriesWithCounts = categories.map(category => ({
+    ...category,
+    count: category.id === 'all' ? portfolioProjects.length : getProjectsByCategory(category.id).length
+  }));
+
+  const handleViewDetails = (project: PortfolioProject) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedProject(null);
+  };
 
   return (
-    <section id="portfolio" className="py-24 bg-richblack">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16" data-aos="fade-up">
-          <h2 className="heading-lg mb-6">Portfolio</h2>
-          <p className="subheading max-w-3xl mx-auto">
-            Take a look at some of the exciting projects we've completed, including logo design, graphic design, and more.
-            We are committed to delivering high-quality, creative solutions to meet our clients' needs.
-          </p>
-        </div>
-        
-        <div className="flex justify-center mb-12" data-aos="fade-up">
-          <div className="flex flex-wrap gap-2 justify-center">
-            <button 
-              className={cn("px-4 py-2 rounded-md transition-colors", 
-                filter === '*' ? "bg-teal text-white" : "glassmorphism text-white/70 hover:bg-white/10")}
-              onClick={() => setFilter('*')}
-            >
-              All
-            </button>
-            <button 
-              className={cn("px-4 py-2 rounded-md transition-colors", 
-                filter === 'filter-app' ? "bg-teal text-white" : "glassmorphism text-white/70 hover:bg-white/10")}
-              onClick={() => setFilter('filter-app')}
-            >
-              Graphic Design
-            </button>
-            <button 
-              className={cn("px-4 py-2 rounded-md transition-colors", 
-                filter === 'filter-card' ? "bg-teal text-white" : "glassmorphism text-white/70 hover:bg-white/10")}
-              onClick={() => setFilter('filter-card')}
-            >
-              UI/UX
-            </button>
-            <button 
-              className={cn("px-4 py-2 rounded-md transition-colors", 
-                filter === 'filter-web' ? "bg-teal text-white" : "glassmorphism text-white/70 hover:bg-white/10")}
-              onClick={() => setFilter('filter-web')}
-            >
-              Web Design
-            </button>
+    <section className="min-h-screen bg-richblack">
+      {/* Hero Section */}
+      <div className="relative pt-32 pb-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl">
+            <h1 className="madeinhaus-display-xl mb-8">
+              Our
+              <br />
+              <span className="text-teal">Work</span>
+            </h1>
+            <p className="madeinhaus-body-large max-w-2xl">
+              Explore our portfolio of creative solutions, from brand identities to digital experiences. 
+              Each project represents our commitment to exceptional design and strategic thinking.
+            </p>
           </div>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredItems.map((item) => (
-            <div key={item.id} className="portfolio-item group" data-aos="fade-up">
-              <div className="relative glassmorphism rounded-xl overflow-hidden">
-                <img 
-                  src={item.image} 
-                  alt={item.title} 
-                  className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                  <div className="p-6 w-full">
-                    <h4 className="text-white text-lg font-medium">{item.title}</h4>
-                    <div className="flex mt-4 space-x-2">
-                      <a href={item.image} className="h-10 w-10 rounded-full glassmorphism flex items-center justify-center hover:bg-teal/30 transition-colors">
-                        <svg className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                        </svg>
-                      </a>
-                      <a href="#" className="h-10 w-10 rounded-full glassmorphism flex items-center justify-center hover:bg-teal/30 transition-colors">
-                        <svg className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101" />
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 015.656 0l4 4a4 4 0 01-5.656 5.656l-1.102-1.101" />
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+      </div>
+
+      {/* Filter Navigation */}
+      <div className="container mx-auto px-4 mb-16">
+        <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+          {categoriesWithCounts.map((category) => (
+            <button
+              key={category.id}
+              onClick={() => setActiveFilter(category.id)}
+              className={cn(
+                "px-6 py-3 rounded-full text-sm font-medium transition-all duration-300",
+                "border border-white/20 backdrop-blur-sm",
+                activeFilter === category.id
+                  ? "bg-teal text-white border-teal shadow-lg shadow-teal/25"
+                  : "bg-white/5 text-white/70 hover:bg-white/10 hover:text-white hover:border-white/30"
+              )}
+            >
+              {category.label}
+              <span className="ml-2 text-xs opacity-60">({category.count})</span>
+            </button>
           ))}
         </div>
       </div>
+
+      {/* Projects Grid */}
+      <div className="container mx-auto px-4 pb-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredProjects.map((project, index) => (
+            <div
+              key={project.id}
+              className="animate-fade-in"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <PortfolioCard 
+                project={project} 
+                onViewDetails={handleViewDetails}
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Empty State */}
+        {filteredProjects.length === 0 && (
+          <div className="text-center py-20">
+            <div className="text-white/40 text-lg">
+              No projects found in this category.
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Call to Action */}
+      <div className="container mx-auto px-4 pb-24">
+        <div className="text-center">
+          <h2 className="madeinhaus-display-md mb-6">
+            Ready to start your project?
+          </h2>
+          <p className="madeinhaus-body-large mb-8 max-w-2xl mx-auto">
+            Let's collaborate to bring your vision to life with exceptional design and strategic thinking.
+          </p>
+          <button className="btn-primary rounded-full text-lg px-8 py-4">
+            Get Started
+          </button>
+        </div>
+      </div>
+
+      {/* Project Detail Modal */}
+      {selectedProject && (
+        <ProjectDetailModal
+          project={selectedProject}
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+        />
+      )}
     </section>
   );
 };

@@ -127,7 +127,70 @@ export default {
 			},
 			fontFamily: {
 				sans: ['Inter', 'system-ui', 'sans-serif'],
-				display: ['SF Pro Display', 'Inter', 'system-ui', 'sans-serif']
+				display: ['SF Pro Display', 'Inter', 'system-ui', 'sans-serif'],
+				'madeinhaus': ['SF Pro Display', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+				'madeinhaus-text': ['Inter', 'SF Pro Text', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif']
+			},
+			fontSize: {
+				// Madeinhaus-inspired display sizes
+				'display-xl': ['clamp(4rem, 8vw, 8rem)', { lineHeight: '0.9', letterSpacing: '-0.02em', fontWeight: '700' }],
+				'display-lg': ['clamp(3rem, 6vw, 6rem)', { lineHeight: '0.9', letterSpacing: '-0.02em', fontWeight: '700' }],
+				'display-md': ['clamp(2.5rem, 5vw, 4rem)', { lineHeight: '0.95', letterSpacing: '-0.01em', fontWeight: '600' }],
+				'display-sm': ['clamp(2rem, 4vw, 3rem)', { lineHeight: '1', letterSpacing: '-0.01em', fontWeight: '600' }],
+				
+				// Madeinhaus-inspired heading sizes
+				'heading-xl': ['clamp(2.5rem, 4vw, 3.5rem)', { lineHeight: '1.1', letterSpacing: '-0.01em', fontWeight: '600' }],
+				'heading-lg': ['clamp(2rem, 3vw, 2.5rem)', { lineHeight: '1.2', letterSpacing: '-0.005em', fontWeight: '600' }],
+				'heading-md': ['clamp(1.5rem, 2.5vw, 2rem)', { lineHeight: '1.3', letterSpacing: '0', fontWeight: '500' }],
+				'heading-sm': ['clamp(1.25rem, 2vw, 1.5rem)', { lineHeight: '1.4', letterSpacing: '0', fontWeight: '500' }],
+				
+				// Body text sizes
+				'body-xl': ['1.25rem', { lineHeight: '1.6', letterSpacing: '0', fontWeight: '400' }],
+				'body-lg': ['1.125rem', { lineHeight: '1.6', letterSpacing: '0', fontWeight: '400' }],
+				'body-md': ['1rem', { lineHeight: '1.6', letterSpacing: '0', fontWeight: '400' }],
+				'body-sm': ['0.875rem', { lineHeight: '1.5', letterSpacing: '0', fontWeight: '400' }],
+				
+				// Caption and small text
+				'caption': ['0.75rem', { lineHeight: '1.4', letterSpacing: '0.025em', fontWeight: '400' }],
+				'overline': ['0.75rem', { lineHeight: '1.2', letterSpacing: '0.1em', fontWeight: '500', textTransform: 'uppercase' }]
+			},
+			fontWeight: {
+				'thin': '100',
+				'extralight': '200',
+				'light': '300',
+				'normal': '400',
+				'medium': '500',
+				'semibold': '600',
+				'bold': '700',
+				'extrabold': '800',
+				'black': '900'
+			},
+			letterSpacing: {
+				'tightest': '-0.025em',
+				'tighter': '-0.02em',
+				'tight': '-0.01em',
+				'normal': '0',
+				'wide': '0.025em',
+				'wider': '0.05em',
+				'widest': '0.1em'
+			},
+			lineHeight: {
+				'none': '1',
+				'tight': '1.1',
+				'snug': '1.2',
+				'normal': '1.3',
+				'relaxed': '1.4',
+				'loose': '1.5',
+				'extra-loose': '1.6'
+			},
+			screens: {
+				'xs': '475px',
+				'sm': '640px',
+				'md': '768px',
+				'lg': '1024px',
+				'xl': '1280px',
+				'2xl': '1536px',
+				'3xl': '1920px'
 			}
 		}
 	},

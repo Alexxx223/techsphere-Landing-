@@ -62,8 +62,8 @@ const PricingCard = ({ price, title, description, features }: { price: string; t
         <div className="mb-4">
           <span className="text-2xl font-bold text-white">{price}</span>
         </div>
-        <h3 className="text-xl font-bold mb-2">{title}</h3>
-        <p className="text-white/70 mb-6">{description}</p>
+        <h3 className="madeinhaus-heading text-heading-sm mb-2">{title}</h3>
+        <p className="madeinhaus-body-base mb-6">{description}</p>
         
         <ul className="space-y-3 mb-8">
           {features.map((feature, index) => (
@@ -71,7 +71,7 @@ const PricingCard = ({ price, title, description, features }: { price: string; t
               <span className="inline-flex items-center justify-center h-6 w-6 rounded-full bg-teal/20 mr-2">
                 <Check className="h-4 w-4 text-teal" />
               </span>
-              <span className="text-white/80">{feature}</span>
+              <span className="madeinhaus-body-base">{feature}</span>
             </li>
           ))}
         </ul>
@@ -119,7 +119,7 @@ const PricingCard = ({ price, title, description, features }: { price: string; t
 const Pricing = () => {
   const pricingPlans = [
     {
-      price: "K1,499",
+      price: "K2,000",
       title: "Start Up Package",
       description: "Perfect for small businesses to establish an online presence.",
       features: [
@@ -129,7 +129,7 @@ const Pricing = () => {
       ]
     },
     {
-      price: "K3,499",
+      price: "K4,000",
       title: "Business Package",
       description: "Comprehensive branding solution for growing businesses.",
       features: [
@@ -140,7 +140,7 @@ const Pricing = () => {
       ]
     },
     {
-      price: "K5,999",
+      price: "K12,000",
       title: "Premium Package",
       description: "Complete digital presence for established businesses.",
       features: [
@@ -157,8 +157,8 @@ const Pricing = () => {
     <section id="pricing" className="py-24 bg-richblack">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16" data-aos="fade-up">
-          <h2 className="heading-lg mb-6">Pricing Plans</h2>
-          <p className="subheading max-w-3xl mx-auto">
+          <h2 className="madeinhaus-display-md mb-6">Pricing Plans</h2>
+          <p className="madeinhaus-body-large max-w-3xl mx-auto">
             Choose the perfect package that fits your business needs and budget.
             Our transparent pricing ensures you get the best value for your investment.
           </p>

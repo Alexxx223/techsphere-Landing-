@@ -1,11 +1,13 @@
 
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { cn } from "@/lib/utils";
 import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,37 +28,93 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <a href="#" className="flex items-center space-x-2">
+            <Link to="/" className="flex items-center space-x-2">
               <span className="text-xl font-display font-bold text-white tracking-tighter">
                 Tech<span className="text-teal">Sphere</span></span>
                 {/* <img src="../public/Asset 20.png" alt="Techsphere" className="inline-block h-8 w-auto ml-2" /> */}
               
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#hero" className="text-white/80 hover:text-white transition-colors">
+            <Link 
+              to="/" 
+              className={cn(
+                "relative text-white/80 hover:text-white transition-all duration-300 ease-in-out",
+                "after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-0.5 after:bg-teal after:transition-all after:duration-300",
+                "hover:after:w-full",
+                location.pathname === "/" && "text-white font-medium after:w-full"
+              )}
+            >
               Home
-            </a>
-            <a href="#about" className="text-white/80 hover:text-white transition-colors">
+            </Link>
+            <Link 
+              to="/about" 
+              className={cn(
+                "relative text-white/80 hover:text-white transition-all duration-300 ease-in-out",
+                "after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-0.5 after:bg-teal after:transition-all after:duration-300",
+                "hover:after:w-full",
+                location.pathname === "/about" && "text-white font-medium after:w-full"
+              )}
+            >
               About
-            </a>
-            <a href="#services" className="text-white/80 hover:text-white transition-colors">
+            </Link>
+            <Link 
+              to="/services" 
+              className={cn(
+                "relative text-white/80 hover:text-white transition-all duration-300 ease-in-out",
+                "after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-0.5 after:bg-teal after:transition-all after:duration-300",
+                "hover:after:w-full",
+                location.pathname === "/services" && "text-white font-medium after:w-full"
+              )}
+            >
               Services
-            </a>
-            <a href="#portfolio" className="text-white/80 hover:text-white transition-colors">
+            </Link>
+            <Link 
+              to="/portfolio" 
+              className={cn(
+                "relative text-white/80 hover:text-white transition-all duration-300 ease-in-out",
+                "after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-0.5 after:bg-teal after:transition-all after:duration-300",
+                "hover:after:w-full",
+                location.pathname === "/portfolio" && "text-white font-medium after:w-full"
+              )}
+            >
               Portfolio
-            </a>
-            <a href="#team" className="text-white/80 hover:text-white transition-colors">
+            </Link>
+            <Link 
+              to="/pricing" 
+              className={cn(
+                "relative text-white/80 hover:text-white transition-all duration-300 ease-in-out",
+                "after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-0.5 after:bg-teal after:transition-all after:duration-300",
+                "hover:after:w-full",
+                location.pathname === "/pricing" && "text-white font-medium after:w-full"
+              )}
+            >
+              Pricing
+            </Link>
+            <Link 
+              to="/team" 
+              className={cn(
+                "relative text-white/80 hover:text-white transition-all duration-300 ease-in-out",
+                "after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-0.5 after:bg-teal after:transition-all after:duration-300",
+                "hover:after:w-full",
+                location.pathname === "/team" && "text-white font-medium after:w-full"
+              )}
+            >
               Team
-            </a>
-            <a href="#contact" className="text-white/80 hover:text-white transition-colors">
+            </Link>
+            <Link 
+              to="/contact" 
+              className={cn(
+                "relative text-white/80 hover:text-white transition-all duration-300 ease-in-out",
+                "after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-0.5 after:bg-teal after:transition-all after:duration-300",
+                "hover:after:w-full",
+                location.pathname === "/contact" && "text-white font-medium after:w-full"
+              )}
+            >
               Contact
-            </a>
-            <a href="#pricing" className="btn-primary">
-              Get Started
-            </a>
+            </Link>
           </nav>
 
           {/* Mobile menu button */}
@@ -78,56 +136,91 @@ const Navbar = () => {
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
-        <div className="p-4 space-y-4 flex flex-col items-center justify-center h-full">
-          <a 
-            href="#hero" 
+        <div className="p-4 space-y-6 flex flex-col items-center justify-center h-full">
+          <Link 
+            to="/" 
             onClick={() => setIsMenuOpen(false)}
-            className="text-white/80 hover:text-white transition-colors text-xl"
+            className={cn(
+              "text-white/80 hover:text-white transition-all duration-300 text-xl relative",
+              "after:absolute after:bottom-[-4px] after:left-1/2 after:transform after:-translate-x-1/2 after:w-0 after:h-0.5 after:bg-teal after:transition-all after:duration-300",
+              "hover:after:w-full",
+              location.pathname === "/" && "text-white font-medium after:w-full"
+            )}
           >
             Home
-          </a>
-          <a 
-            href="#about" 
+          </Link>
+          <Link 
+            to="/about" 
             onClick={() => setIsMenuOpen(false)}
-            className="text-white/80 hover:text-white transition-colors text-xl"
+            className={cn(
+              "text-white/80 hover:text-white transition-all duration-300 text-xl relative",
+              "after:absolute after:bottom-[-4px] after:left-1/2 after:transform after:-translate-x-1/2 after:w-0 after:h-0.5 after:bg-teal after:transition-all after:duration-300",
+              "hover:after:w-full",
+              location.pathname === "/about" && "text-white font-medium after:w-full"
+            )}
           >
             About
-          </a>
-          <a 
-            href="#services" 
+          </Link>
+          <Link 
+            to="/services" 
             onClick={() => setIsMenuOpen(false)}
-            className="text-white/80 hover:text-white transition-colors text-xl"
+            className={cn(
+              "text-white/80 hover:text-white transition-all duration-300 text-xl relative",
+              "after:absolute after:bottom-[-4px] after:left-1/2 after:transform after:-translate-x-1/2 after:w-0 after:h-0.5 after:bg-teal after:transition-all after:duration-300",
+              "hover:after:w-full",
+              location.pathname === "/services" && "text-white font-medium after:w-full"
+            )}
           >
             Services
-          </a>
-          <a 
-            href="#portfolio" 
+          </Link>
+          <Link 
+            to="/portfolio" 
             onClick={() => setIsMenuOpen(false)}
-            className="text-white/80 hover:text-white transition-colors text-xl"
+            className={cn(
+              "text-white/80 hover:text-white transition-all duration-300 text-xl relative",
+              "after:absolute after:bottom-[-4px] after:left-1/2 after:transform after:-translate-x-1/2 after:w-0 after:h-0.5 after:bg-teal after:transition-all after:duration-300",
+              "hover:after:w-full",
+              location.pathname === "/portfolio" && "text-white font-medium after:w-full"
+            )}
           >
             Portfolio
-          </a>
-          <a 
-            href="#team" 
+          </Link>
+          <Link 
+            to="/pricing" 
             onClick={() => setIsMenuOpen(false)}
-            className="text-white/80 hover:text-white transition-colors text-xl"
+            className={cn(
+              "text-white/80 hover:text-white transition-all duration-300 text-xl relative",
+              "after:absolute after:bottom-[-4px] after:left-1/2 after:transform after:-translate-x-1/2 after:w-0 after:h-0.5 after:bg-teal after:transition-all after:duration-300",
+              "hover:after:w-full",
+              location.pathname === "/pricing" && "text-white font-medium after:w-full"
+            )}
+          >
+            Pricing
+          </Link>
+          <Link 
+            to="/team" 
+            onClick={() => setIsMenuOpen(false)}
+            className={cn(
+              "text-white/80 hover:text-white transition-all duration-300 text-xl relative",
+              "after:absolute after:bottom-[-4px] after:left-1/2 after:transform after:-translate-x-1/2 after:w-0 after:h-0.5 after:bg-teal after:transition-all after:duration-300",
+              "hover:after:w-full",
+              location.pathname === "/team" && "text-white font-medium after:w-full"
+            )}
           >
             Team
-          </a>
-          <a 
-            href="#contact" 
+          </Link>
+          <Link 
+            to="/contact" 
             onClick={() => setIsMenuOpen(false)}
-            className="text-white/80 hover:text-white transition-colors text-xl"
+            className={cn(
+              "text-white/80 hover:text-white transition-all duration-300 text-xl relative",
+              "after:absolute after:bottom-[-4px] after:left-1/2 after:transform after:-translate-x-1/2 after:w-0 after:h-0.5 after:bg-teal after:transition-all after:duration-300",
+              "hover:after:w-full",
+              location.pathname === "/contact" && "text-white font-medium after:w-full"
+            )}
           >
             Contact
-          </a>
-          <a 
-            href="#contact" 
-            onClick={() => setIsMenuOpen(false)}
-            className="btn-primary mt-4"
-          >
-            Get Started
-          </a>
+          </Link>
         </div>
       </div>
     </header>
