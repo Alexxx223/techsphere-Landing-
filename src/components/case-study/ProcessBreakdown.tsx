@@ -4,6 +4,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ProcessStep } from '@/types/caseStudy';
 import { useResponsive, useTouchDevice, useReducedMotion, getResponsiveSpacing, getResponsiveTextSize } from '@/hooks/useResponsive';
 import { getDeviceAnimationConfig, shouldEnableAnimation, createOptimizedTimeline, getOptimizedScrollTriggerConfig } from '@/utils/deviceAnimationConfig';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft, faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -187,7 +189,7 @@ const ProcessBreakdown = ({ processSteps }: ProcessBreakdownProps) => {
                   {/* Timeline Node */}
                   {!isMobile && (
                     <div className="absolute left-1/2 transform -translate-x-1/2 w-16 h-16 bg-gradient-to-br from-[#01a99c] to-[#52c1c9] rounded-full flex items-center justify-center z-10 shadow-lg">
-                      <span className="text-2xl">{step.icon}</span>
+                      <FontAwesomeIcon icon={step.icon} className="text-2xl text-white" />
                     </div>
                   )}
 
@@ -195,7 +197,7 @@ const ProcessBreakdown = ({ processSteps }: ProcessBreakdownProps) => {
                   {isMobile && (
                     <div className="flex items-center mb-4">
                       <div className="w-12 h-12 bg-gradient-to-br from-[#01a99c] to-[#52c1c9] rounded-full flex items-center justify-center mr-4">
-                        <span className="text-xl">{step.icon}</span>
+                        <FontAwesomeIcon icon={step.icon} className="text-xl text-white" />
                       </div>
                       <span className="text-sm font-medium text-[#52c1c9] uppercase tracking-wider">
                         Step {step.order}
@@ -249,14 +251,14 @@ const ProcessBreakdown = ({ processSteps }: ProcessBreakdownProps) => {
                                   className={`absolute left-2 top-1/2 transform -translate-y-1/2 ${isTouchDevice ? 'w-10 h-10' : 'w-8 h-8'} bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center text-white transition-all duration-200`}
                                   aria-label="Previous image"
                                 >
-                                  ←
+                                  <FontAwesomeIcon icon={faChevronLeft} />
                                 </button>
                                 <button
                                   onClick={() => nextImage(step.id, step.images.length)}
                                   className={`absolute right-2 top-1/2 transform -translate-y-1/2 ${isTouchDevice ? 'w-10 h-10' : 'w-8 h-8'} bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center text-white transition-all duration-200`}
                                   aria-label="Next image"
                                 >
-                                  →
+                                  <FontAwesomeIcon icon={faChevronRight} />
                                 </button>
                                 
                                 {/* Image Indicators */}
@@ -288,11 +290,9 @@ const ProcessBreakdown = ({ processSteps }: ProcessBreakdownProps) => {
                             className={`flex items-center justify-between w-full text-left text-[#52c1c9] hover:text-[#01a99c] transition-colors duration-200 ${isMobile ? 'mb-3 py-2' : 'mb-4'} ${isTouchDevice ? 'min-h-[44px]' : ''}`}
                           >
                             <span className="font-medium">View Details</span>
-                            <span className={`transform transition-transform duration-200 ${
+                            <FontAwesomeIcon icon={faChevronDown} className={`transform transition-transform duration-200 ${
                               expandedStep === step.id ? 'rotate-180' : ''
-                            }`}>
-                              ↓
-                            </span>
+                            }`} />
                           </button>
                           
                           {expandedStep === step.id && (

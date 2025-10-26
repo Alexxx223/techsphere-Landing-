@@ -6,6 +6,8 @@ import { useResponsive, useReducedMotion } from '@/hooks/useResponsive';
 import { getDeviceAnimationConfig, shouldEnableAnimation, createOptimizedTimeline } from '@/utils/deviceAnimationConfig';
 import ShareableHighlight from '@/components/social/ShareableHighlight';
 import { getCaseStudyById } from '@/data/caseStudies';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChartBar, faChartLine, faStar, faBullseye, faCheck } from '@fortawesome/free-solid-svg-icons';
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -152,6 +154,7 @@ const ResultsMetrics = ({ metrics, caseStudyId }: ResultsMetricsProps) => {
         
         gsap.fromTo(
           { value: startValue },
+          { value: startValue },
           {
             value: targetValue,
             duration: duration,
@@ -172,6 +175,7 @@ const ResultsMetrics = ({ metrics, caseStudyId }: ResultsMetricsProps) => {
         
         gsap.fromTo(
           { value: 0 },
+          { value: 0 },
           {
             value: targetValue,
             duration: duration,
@@ -190,11 +194,11 @@ const ResultsMetrics = ({ metrics, caseStudyId }: ResultsMetricsProps) => {
 
   const getMetricIcon = (animationType: string) => {
     const icons = {
-      counter: '📊',
-      progress: '📈',
-      fade: '✨'
+      counter: faChartBar,
+      progress: faChartLine,
+      fade: faStar
     };
-    return icons[animationType as keyof typeof icons] || '📊';
+    return icons[animationType as keyof typeof icons] || faChartBar;
   };
 
   const getMetricColor = (index: number) => {
@@ -251,7 +255,7 @@ const ResultsMetrics = ({ metrics, caseStudyId }: ResultsMetricsProps) => {
                 {/* Metric Header */}
                 <div className="flex items-center justify-between mb-6">
                   <div className={`w-12 h-12 bg-gradient-to-r ${getMetricColor(index)} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                    <span className="text-2xl">{getMetricIcon(metric.animationType)}</span>
+                    <FontAwesomeIcon icon={getMetricIcon(metric.animationType)} className="text-2xl text-white" />
                   </div>
                   {metric.improvement && (
                     <div className="text-right">
@@ -356,7 +360,7 @@ const ResultsMetrics = ({ metrics, caseStudyId }: ResultsMetricsProps) => {
                         className="flex items-center space-x-4 p-4 bg-gray-700/30 rounded-xl hover:bg-gray-700/50 transition-all duration-300"
                       >
                         <div className={`w-8 h-8 bg-gradient-to-r ${getMetricColor(index)} rounded-full flex items-center justify-center flex-shrink-0`}>
-                          <span className="text-white text-sm">✓</span>
+                          <FontAwesomeIcon icon={faCheck} className="text-white text-sm" />
                         </div>
                         <div className="flex-1">
                           <div className="text-white font-medium">{metric.label}</div>
@@ -384,7 +388,7 @@ const ResultsMetrics = ({ metrics, caseStudyId }: ResultsMetricsProps) => {
           <div className="bg-gradient-to-r from-[#01a99c]/10 to-[#52c1c9]/10 backdrop-blur-sm rounded-2xl p-8 border border-[#01a99c]/20">
             <div className="text-center">
               <div className="w-16 h-16 bg-[#01a99c]/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-3xl">🎯</span>
+                <FontAwesomeIcon icon={faBullseye} className="text-3xl text-[#01a99c]" />
               </div>
               <h3 className="text-2xl font-bold text-white mb-4">
                 Project Impact Summary

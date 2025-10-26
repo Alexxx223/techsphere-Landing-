@@ -4,6 +4,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ClientTestimonial as ClientTestimonialType } from '@/types/caseStudy';
 import ShareableHighlight from '@/components/social/ShareableHighlight';
 import { getCaseStudyById } from '@/data/caseStudies';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faComment, faCheckCircle, faHandshake, faBullseye } from '@fortawesome/free-solid-svg-icons';
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -175,7 +177,7 @@ const ClientTestimonial = ({ testimonial, caseStudyId }: ClientTestimonialProps)
           {/* Decorative Quote Icon */}
           <div className="text-center mb-8">
             <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-[#01a99c]/20 to-[#52c1c9]/20 rounded-full border border-[#01a99c]/30">
-              <span className="text-4xl text-[#01a99c]">💬</span>
+              <FontAwesomeIcon icon={faComment} className="text-4xl text-[#01a99c]" />
             </div>
           </div>
 
@@ -261,7 +263,7 @@ const ClientTestimonial = ({ testimonial, caseStudyId }: ClientTestimonialProps)
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="text-center p-6 bg-gray-800/30 backdrop-blur-sm rounded-2xl border border-gray-700/30">
               <div className="w-12 h-12 bg-[#01a99c]/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">✅</span>
+                <FontAwesomeIcon icon={faCheckCircle} className="text-2xl text-green-400" />
               </div>
               <h4 className="text-lg font-semibold text-white mb-2">Verified Client</h4>
               <p className="text-gray-300 text-sm">Authenticated testimonial from real project client</p>
@@ -269,7 +271,7 @@ const ClientTestimonial = ({ testimonial, caseStudyId }: ClientTestimonialProps)
 
             <div className="text-center p-6 bg-gray-800/30 backdrop-blur-sm rounded-2xl border border-gray-700/30">
               <div className="w-12 h-12 bg-[#52c1c9]/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🤝</span>
+                <FontAwesomeIcon icon={faHandshake} className="text-2xl text-blue-400" />
               </div>
               <h4 className="text-lg font-semibold text-white mb-2">Long-term Partnership</h4>
               <p className="text-gray-300 text-sm">Ongoing collaboration and continued trust</p>
@@ -277,7 +279,7 @@ const ClientTestimonial = ({ testimonial, caseStudyId }: ClientTestimonialProps)
 
             <div className="text-center p-6 bg-gray-800/30 backdrop-blur-sm rounded-2xl border border-gray-700/30">
               <div className="w-12 h-12 bg-[#01a99c]/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🎯</span>
+                <FontAwesomeIcon icon={faBullseye} className="text-2xl text-red-400" />
               </div>
               <h4 className="text-lg font-semibold text-white mb-2">Results Delivered</h4>
               <p className="text-gray-300 text-sm">Measurable outcomes and exceeded expectations</p>

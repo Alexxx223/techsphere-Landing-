@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Technology } from '@/types/caseStudy';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPaintBrush, faCog, faDatabase, faWrench, faStar, faRocket, faBolt, faLock, faMobileAlt } from '@fortawesome/free-solid-svg-icons';
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -151,14 +153,14 @@ const TechnicalDetails = ({ technologies, projectTitle }: TechnicalDetailsProps)
 
   const getCategoryIcon = (category: string) => {
     const icons = {
-      frontend: '🎨',
-      backend: '⚙️',
-      database: '🗄️',
-      tool: '🔧',
-      design: '✨',
-      all: '🚀'
+      frontend: faPaintBrush,
+      backend: faCog,
+      database: faDatabase,
+      tool: faWrench,
+      design: faStar,
+      all: faRocket
     };
-    return icons[category as keyof typeof icons] || '💻';
+    return icons[category as keyof typeof icons] || faRocket;
   };
 
   const getCategoryColor = (category: string) => {
@@ -200,7 +202,7 @@ const TechnicalDetails = ({ technologies, projectTitle }: TechnicalDetailsProps)
                     : 'bg-gray-800/50 text-gray-300 hover:bg-gray-700/50 hover:text-white'
                 }`}
               >
-                <span>{getCategoryIcon(category)}</span>
+                <FontAwesomeIcon icon={getCategoryIcon(category)} />
                 <span className="capitalize">{category}</span>
               </button>
             ))}
@@ -359,21 +361,21 @@ const TechnicalDetails = ({ technologies, projectTitle }: TechnicalDetailsProps)
             <div className="grid md:grid-cols-3 gap-6">
               <div className="text-center p-6 bg-gray-700/30 rounded-xl hover:bg-gray-700/50 transition-all duration-300">
                 <div className="w-16 h-16 bg-[#01a99c]/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">⚡</span>
+                  <FontAwesomeIcon icon={faBolt} className="text-2xl text-[#01a99c]" />
                 </div>
                 <h4 className="text-lg font-semibold text-white mb-2">Performance</h4>
                 <p className="text-gray-300 text-sm">Optimized for speed and efficiency</p>
               </div>
               <div className="text-center p-6 bg-gray-700/30 rounded-xl hover:bg-gray-700/50 transition-all duration-300">
                 <div className="w-16 h-16 bg-[#52c1c9]/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">🔒</span>
+                  <FontAwesomeIcon icon={faLock} className="text-2xl text-[#52c1c9]" />
                 </div>
                 <h4 className="text-lg font-semibold text-white mb-2">Security</h4>
                 <p className="text-gray-300 text-sm">Built with security best practices</p>
               </div>
               <div className="text-center p-6 bg-gray-700/30 rounded-xl hover:bg-gray-700/50 transition-all duration-300">
                 <div className="w-16 h-16 bg-[#01a99c]/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">📱</span>
+                  <FontAwesomeIcon icon={faMobileAlt} className="text-2xl text-[#01a99c]" />
                 </div>
                 <h4 className="text-lg font-semibold text-white mb-2">Responsive</h4>
                 <p className="text-gray-300 text-sm">Seamless across all devices</p>

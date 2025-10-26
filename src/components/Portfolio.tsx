@@ -3,7 +3,9 @@ import React, { useState } from 'react';
 import { cn } from "@/lib/utils";
 import PortfolioCard from './PortfolioCard';
 import ProjectDetailModal from './ProjectDetailModal';
-import { portfolioProjects, categories, getProjectsByCategory, PortfolioProject } from '@/data/portfolioProjects';
+import { portfolioProjects, categories as originalCategories, getProjectsByCategory, PortfolioProject } from '@/data/portfolioProjects';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faRocket, faPalette, faPenNib, faBuilding, faPrint, faBullhorn, faAd } from '@fortawesome/free-solid-svg-icons';
 
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -12,6 +14,16 @@ const Portfolio = () => {
   
   const filteredProjects = getProjectsByCategory(activeFilter);
   
+  const categories = [
+    { id: 'all', label: 'All Work', icon: faRocket },
+    { id: 'branding', label: 'Branding', icon: faPalette },
+    { id: 'logo-design', label: 'Logo Design', icon: faPenNib },
+    { id: 'corporate-design', label: 'Corporate Design', icon: faBuilding },
+    { id: 'print-design', label: 'Print Design', icon: faPrint },
+    { id: 'marketing-design', label: 'Marketing Design', icon: faBullhorn },
+    { id: 'advertisement', label: 'Advertisement', icon: faAd }
+  ];
+
   const categoriesWithCounts = categories.map(category => ({
     ...category,
     count: category.id === 'all' ? portfolioProjects.length : getProjectsByCategory(category.id).length
@@ -61,6 +73,7 @@ const Portfolio = () => {
                   : "bg-white/5 text-white/70 hover:bg-white/10 hover:text-white hover:border-white/30"
               )}
             >
+              <FontAwesomeIcon icon={category.icon} className="mr-2" />
               {category.label}
               <span className="ml-2 text-xs opacity-60">({category.count})</span>
             </button>

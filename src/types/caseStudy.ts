@@ -1,4 +1,5 @@
 // Case Study Data Types and Interfaces
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 export interface CaseStudy {
   id: string;
@@ -39,7 +40,7 @@ export interface ProcessStep {
   images: string[];
   details: string[];
   order: number;
-  icon: string;
+  icon: IconProp;
 }
 
 export interface ChallengesSolutions {

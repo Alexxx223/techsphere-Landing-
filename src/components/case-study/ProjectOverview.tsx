@@ -2,6 +2,8 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { CaseStudy } from '@/types/caseStudy';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBullseye, faLightbulb, faRocket, faClipboardList } from '@fortawesome/free-solid-svg-icons';
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -120,7 +122,7 @@ const ProjectOverview = ({ caseStudy }: ProjectOverviewProps) => {
             >
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-red-500/20 rounded-xl flex items-center justify-center mr-4">
-                  <span className="text-2xl">🎯</span>
+                  <FontAwesomeIcon icon={faBullseye} className="text-2xl text-red-400" />
                 </div>
                 <h3 className="text-2xl font-semibold text-white">The Challenge</h3>
               </div>
@@ -134,12 +136,12 @@ const ProjectOverview = ({ caseStudy }: ProjectOverviewProps) => {
               ref={solutionRef}
               className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 hover:border-gray-600/50 transition-all duration-300"
             >
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-[#01a99c]/20 rounded-xl flex items-center justify-center mr-4">
-                  <span className="text-2xl">💡</span>
-                </div>
-                <h3 className="text-2xl font-semibold text-white">Our Solution</h3>
+            <div className="flex items-center mb-6">
+              <div className="w-12 h-12 bg-[#01a99c]/20 rounded-xl flex items-center justify-center mr-4">
+                <FontAwesomeIcon icon={faLightbulb} className="text-2xl text-[#01a99c]" />
               </div>
+              <h3 className="text-2xl font-semibold text-white">Our Solution</h3>
+            </div>
               <p className="text-gray-300 text-lg leading-relaxed">
                 {caseStudy.overview.solution}
               </p>
@@ -151,12 +153,12 @@ const ProjectOverview = ({ caseStudy }: ProjectOverviewProps) => {
             ref={resultRef}
             className="bg-gradient-to-r from-[#01a99c]/10 to-[#52c1c9]/10 backdrop-blur-sm rounded-2xl p-8 border border-[#01a99c]/20 mb-16"
           >
-            <div className="flex items-center mb-6">
-              <div className="w-12 h-12 bg-[#01a99c]/20 rounded-xl flex items-center justify-center mr-4">
-                <span className="text-2xl">🚀</span>
-              </div>
-              <h3 className="text-2xl font-semibold text-white">The Result</h3>
+          <div className="flex items-center mb-6">
+            <div className="w-12 h-12 bg-[#01a99c]/20 rounded-xl flex items-center justify-center mr-4">
+              <FontAwesomeIcon icon={faRocket} className="text-2xl text-[#52c1c9]" />
             </div>
+            <h3 className="text-2xl font-semibold text-white">The Result</h3>
+          </div>
             <p className="text-gray-300 text-lg leading-relaxed">
               {caseStudy.overview.result}
             </p>
@@ -169,7 +171,7 @@ const ProjectOverview = ({ caseStudy }: ProjectOverviewProps) => {
           >
             <div className="flex items-center mb-8">
               <div className="w-12 h-12 bg-[#52c1c9]/20 rounded-xl flex items-center justify-center mr-4">
-                <span className="text-2xl">📋</span>
+                <FontAwesomeIcon icon={faClipboardList} className="text-2xl text-[#52c1c9]" />
               </div>
               <h3 className="text-2xl font-semibold text-white">Project Objectives</h3>
             </div>

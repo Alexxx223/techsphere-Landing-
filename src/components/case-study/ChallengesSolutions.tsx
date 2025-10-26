@@ -3,6 +3,8 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ChallengesSolutions as ChallengesSolutionsType } from '@/types/caseStudy';
 import { useResponsive, useTouchDevice, getResponsiveSpacing, getResponsiveTextSize } from '@/hooks/useResponsive';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExclamationTriangle, faTimes, faCheck, faLightbulb } from '@fortawesome/free-solid-svg-icons';
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -195,7 +197,7 @@ const ChallengesSolutions = ({ challengesSolutions }: ChallengesSolutionsProps) 
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                     <div className="absolute bottom-4 left-4 right-4">
                       <div className="flex items-center space-x-2 text-red-400">
-                        <span className={`${isMobile ? 'text-xl' : 'text-2xl'}`}>⚠️</span>
+                        <FontAwesomeIcon icon={faExclamationTriangle} className={`${isMobile ? 'text-xl' : 'text-2xl'}`} />
                         <span className="font-medium">Challenge</span>
                       </div>
                     </div>
@@ -223,7 +225,7 @@ const ChallengesSolutions = ({ challengesSolutions }: ChallengesSolutionsProps) 
                           className={`flex items-start space-x-3 ${isMobile ? 'p-3' : 'p-4'} bg-red-500/10 border border-red-500/20 rounded-xl`}
                         >
                           <div className="w-6 h-6 bg-red-500/30 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <span className="text-red-300 text-sm">×</span>
+                            <FontAwesomeIcon icon={faTimes} className="text-red-300 text-sm" />
                           </div>
                           <p className={`text-gray-300 ${isMobile ? 'text-sm' : 'text-base'} leading-relaxed`}>{point}</p>
                         </div>
@@ -263,7 +265,7 @@ const ChallengesSolutions = ({ challengesSolutions }: ChallengesSolutionsProps) 
                           className={`flex items-start space-x-3 ${isMobile ? 'p-3' : 'p-4'} bg-[#01a99c]/10 border border-[#01a99c]/20 rounded-xl`}
                         >
                           <div className="w-6 h-6 bg-[#01a99c]/30 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <span className="text-[#52c1c9] text-sm">✓</span>
+                            <FontAwesomeIcon icon={faCheck} className="text-[#52c1c9] text-sm" />
                           </div>
                           <p className={`text-gray-300 ${isMobile ? 'text-sm' : 'text-base'} leading-relaxed`}>{item}</p>
                         </div>
@@ -299,7 +301,7 @@ const ChallengesSolutions = ({ challengesSolutions }: ChallengesSolutionsProps) 
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                     <div className="absolute bottom-4 left-4 right-4">
                       <div className="flex items-center space-x-2 text-[#01a99c]">
-                        <span className={`${isMobile ? 'text-xl' : 'text-2xl'}`}>💡</span>
+                        <FontAwesomeIcon icon={faLightbulb} className={`${isMobile ? 'text-xl' : 'text-2xl'}`} />
                         <span className="font-medium">Solution</span>
                       </div>
                     </div>

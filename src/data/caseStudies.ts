@@ -4,6 +4,7 @@
  */
 
 import { CaseStudy, ProcessStep, ProjectMetric, Technology, ProjectImage, ClientTestimonial, ChallengesSolutions } from '../types/caseStudy';
+import { faSearch, faLightbulb, faPalette, faFileAlt } from '@fortawesome/free-solid-svg-icons';
 
 // Sample case studies based on existing portfolio projects
 export const caseStudies: CaseStudy[] = [
@@ -43,7 +44,7 @@ export const caseStudies: CaseStudy[] = [
           'Developed brand positioning strategy'
         ],
         order: 1,
-        icon: ''
+        icon: faSearch
       },
       {
         id: 'concept',
@@ -58,7 +59,7 @@ export const caseStudies: CaseStudy[] = [
           'Presented concepts to stakeholders'
         ],
         order: 2,
-        icon: ''
+        icon: faLightbulb
       },
       {
         id: 'design',
@@ -73,7 +74,7 @@ export const caseStudies: CaseStudy[] = [
           'Created icon system and visual elements'
         ],
         order: 3,
-        icon: ''
+        icon: faPalette
       },
       {
         id: 'guidelines',
@@ -88,7 +89,7 @@ export const caseStudies: CaseStudy[] = [
           'Provided implementation support and training'
         ],
         order: 4,
-        icon: ''
+        icon: faFileAlt
       }
     ],
     
@@ -234,7 +235,7 @@ export const caseStudies: CaseStudy[] = [
           'Identified brand perception gaps'
         ],
         order: 1,
-        icon: ''
+        icon: faSearch
       },
       {
         id: 'strategy',
@@ -249,7 +250,7 @@ export const caseStudies: CaseStudy[] = [
           'Established brand voice and tone guidelines'
         ],
         order: 2,
-        icon: ''
+        icon: faLightbulb
       },
       {
         id: 'design-system',
@@ -264,7 +265,7 @@ export const caseStudies: CaseStudy[] = [
           'Established photography and imagery guidelines'
         ],
         order: 3,
-        icon: ''
+        icon: faPalette
       },
       {
         id: 'implementation',
@@ -279,7 +280,7 @@ export const caseStudies: CaseStudy[] = [
           'Produced digital assets and social media templates'
         ],
         order: 4,
-        icon: ''
+        icon: faFileAlt
       }
     ],    
 
@@ -318,7 +319,7 @@ export const caseStudies: CaseStudy[] = [
       { name: 'Adobe InDesign', category: 'design', description: 'Layout design and print production' },
       { name: 'Adobe Illustrator', category: 'design', description: 'Logo and icon design' },
       { name: 'Adobe Photoshop', category: 'design', description: 'Image editing and mockups' },
-      { name: 'Adobe Acrobat', category: 'tools', description: 'PDF optimization and interactive features' }
+      { name: 'Adobe Acrobat', category: 'tool', description: 'PDF optimization and interactive features' }
     ],
     
     metrics: [
@@ -425,7 +426,7 @@ export const caseStudies: CaseStudy[] = [
           'Established brand positioning strategy'
         ],
         order: 1,
-        icon: ''
+        icon: faSearch
       },
       {
         id: 'identity',
@@ -440,7 +441,7 @@ export const caseStudies: CaseStudy[] = [
           'Developed supporting visual elements and patterns'
         ],
         order: 2,
-        icon: ''
+        icon: faLightbulb
       },
       {
         id: 'messaging',
@@ -455,7 +456,7 @@ export const caseStudies: CaseStudy[] = [
           'Wrote brand story and value propositions'
         ],
         order: 3,
-        icon: ''
+        icon: faPalette
       },
       {
         id: 'system',
@@ -470,7 +471,7 @@ export const caseStudies: CaseStudy[] = [
           'Established digital brand implementation standards'
         ],
         order: 4,
-        icon: ''
+        icon: faFileAlt
       }
     ],  
   
@@ -615,7 +616,7 @@ export const caseStudies: CaseStudy[] = [
           'Defined differentiation opportunities'
         ],
         order: 1,
-        icon: ''
+        icon: faSearch
       },
       {
         id: 'concepts',
@@ -630,7 +631,7 @@ export const caseStudies: CaseStudy[] = [
           'Refined top 3 concepts for presentation'
         ],
         order: 2,
-        icon: ''
+        icon: faLightbulb
       },
       {
         id: 'refinement',
@@ -645,7 +646,7 @@ export const caseStudies: CaseStudy[] = [
           'Tested scalability and legibility'
         ],
         order: 3,
-        icon: ''
+        icon: faPalette
       },
       {
         id: 'delivery',
@@ -660,7 +661,7 @@ export const caseStudies: CaseStudy[] = [
           'Provided usage guidelines and recommendations'
         ],
         order: 4,
-        icon: ''
+        icon: faFileAlt
       }
     ],
     
@@ -805,7 +806,7 @@ export const caseStudies: CaseStudy[] = [
           'Planned multi-channel campaign deployment'
         ],
         order: 1,
-        icon: ''
+        icon: faSearch
       },
       {
         id: 'creative',
@@ -820,7 +821,7 @@ export const caseStudies: CaseStudy[] = [
           'Established consistent visual language'
         ],
         order: 2,
-        icon: ''
+        icon: faLightbulb
       },
       {
         id: 'production',
@@ -835,7 +836,7 @@ export const caseStudies: CaseStudy[] = [
           'Optimized all assets for their respective channels'
         ],
         order: 3,
-        icon: ''
+        icon: faPalette
       },
       {
         id: 'launch',
@@ -850,7 +851,7 @@ export const caseStudies: CaseStudy[] = [
           'Provided performance reporting and insights'
         ],
         order: 4,
-        icon: ''
+        icon: faFileAlt
       }
     ],
     

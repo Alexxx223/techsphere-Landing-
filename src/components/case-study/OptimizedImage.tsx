@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { cn } from '@/lib/utils';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCamera } from '@fortawesome/free-solid-svg-icons';
 
 interface OptimizedImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   src: string;
@@ -135,7 +137,7 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
       {hasError && (
         <div className="absolute inset-0 flex items-center justify-center bg-gray-100 text-gray-500">
           <div className="text-center">
-            <div className="text-2xl mb-2">📷</div>
+            <div className="text-2xl mb-2"><FontAwesomeIcon icon={faCamera} /></div>
             <div className="text-sm">Image unavailable</div>
           </div>
         </div>
