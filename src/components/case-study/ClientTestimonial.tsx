@@ -174,8 +174,8 @@ const ClientTestimonial = ({ testimonial, caseStudyId }: ClientTestimonialProps)
         <div className="max-w-4xl mx-auto">
           {/* Decorative Quote Icon */}
           <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full border border-blue-500/30">
-              <span className="text-4xl text-blue-400">💬</span>
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-[#01a99c]/20 to-[#52c1c9]/20 rounded-full border border-[#01a99c]/30">
+              <span className="text-4xl text-[#01a99c]">💬</span>
             </div>
           </div>
 
@@ -188,7 +188,7 @@ const ClientTestimonial = ({ testimonial, caseStudyId }: ClientTestimonialProps)
             >
               <div className="relative">
                 {/* Opening Quote Mark */}
-                <div className="absolute -top-4 -left-4 text-6xl text-blue-400/30 font-serif">
+                <div className="absolute -top-4 -left-4 text-6xl text-[#01a99c]/30 font-serif">
                   "
                 </div>
                 
@@ -197,7 +197,7 @@ const ClientTestimonial = ({ testimonial, caseStudyId }: ClientTestimonialProps)
                 </blockquote>
                 
                 {/* Closing Quote Mark */}
-                <div className="absolute -bottom-8 -right-4 text-6xl text-blue-400/30 font-serif">
+                <div className="absolute -bottom-8 -right-4 text-6xl text-[#01a99c]/30 font-serif">
                   "
                 </div>
               </div>
@@ -227,7 +227,7 @@ const ClientTestimonial = ({ testimonial, caseStudyId }: ClientTestimonialProps)
                     className="w-16 h-16 rounded-full object-cover border-2 border-gray-600/50 shadow-lg"
                   />
                 ) : (
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center shadow-lg">
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#01a99c] to-[#52c1c9] rounded-full flex items-center justify-center shadow-lg">
                     <span className="text-white font-bold text-lg">
                       {getInitials(testimonial.author)}
                     </span>
@@ -246,21 +246,21 @@ const ClientTestimonial = ({ testimonial, caseStudyId }: ClientTestimonialProps)
                 <p className="text-gray-400 text-sm mb-1">
                   {testimonial.position}
                 </p>
-                <p className="text-blue-400 text-sm font-medium">
+                <p className="text-[#01a99c] text-sm font-medium">
                   {testimonial.company}
                 </p>
               </div>
             </div>
 
             {/* Decorative Elements */}
-            <div className="absolute top-4 right-4 w-20 h-20 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-xl" />
-            <div className="absolute bottom-4 left-4 w-16 h-16 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-full blur-xl" />
+            <div className="absolute top-4 right-4 w-20 h-20 bg-gradient-to-br from-[#01a99c]/10 to-[#52c1c9]/10 rounded-full blur-xl" />
+            <div className="absolute bottom-4 left-4 w-16 h-16 bg-gradient-to-br from-[#52c1c9]/10 to-[#01a99c]/10 rounded-full blur-xl" />
           </div>
 
           {/* Additional Trust Indicators */}
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="text-center p-6 bg-gray-800/30 backdrop-blur-sm rounded-2xl border border-gray-700/30">
-              <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-12 h-12 bg-[#01a99c]/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">✅</span>
               </div>
               <h4 className="text-lg font-semibold text-white mb-2">Verified Client</h4>
@@ -268,7 +268,7 @@ const ClientTestimonial = ({ testimonial, caseStudyId }: ClientTestimonialProps)
             </div>
 
             <div className="text-center p-6 bg-gray-800/30 backdrop-blur-sm rounded-2xl border border-gray-700/30">
-              <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-12 h-12 bg-[#52c1c9]/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">🤝</span>
               </div>
               <h4 className="text-lg font-semibold text-white mb-2">Long-term Partnership</h4>
@@ -276,7 +276,7 @@ const ClientTestimonial = ({ testimonial, caseStudyId }: ClientTestimonialProps)
             </div>
 
             <div className="text-center p-6 bg-gray-800/30 backdrop-blur-sm rounded-2xl border border-gray-700/30">
-              <div className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-12 h-12 bg-[#01a99c]/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">🎯</span>
               </div>
               <h4 className="text-lg font-semibold text-white mb-2">Results Delivered</h4>
@@ -286,7 +286,7 @@ const ClientTestimonial = ({ testimonial, caseStudyId }: ClientTestimonialProps)
 
           {/* Call to Action */}
           <div className="mt-12 text-center">
-            <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 backdrop-blur-sm rounded-2xl p-8 border border-blue-500/20">
+            <div className="bg-gradient-to-r from-[#01a99c]/10 to-[#52c1c9]/10 backdrop-blur-sm rounded-2xl p-8 border border-[#01a99c]/20">
               <h3 className="text-2xl font-bold text-white mb-4">
                 Ready to Create Your Success Story?
               </h3>
@@ -294,7 +294,7 @@ const ClientTestimonial = ({ testimonial, caseStudyId }: ClientTestimonialProps)
                 Join our satisfied clients and experience the same level of dedication, 
                 expertise, and results-driven approach that made this project a success.
               </p>
-              <button className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
+              <button className="bg-gradient-to-r from-[#01a99c] to-[#52c1c9] hover:from-[#064e53] hover:to-[#01a99c] text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
                 Start Your Project
               </button>
             </div>

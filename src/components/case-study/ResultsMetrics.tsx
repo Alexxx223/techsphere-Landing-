@@ -199,12 +199,12 @@ const ResultsMetrics = ({ metrics, caseStudyId }: ResultsMetricsProps) => {
 
   const getMetricColor = (index: number) => {
     const colors = [
-      'from-blue-500 to-cyan-500',
-      'from-green-500 to-emerald-500',
-      'from-purple-500 to-violet-500',
-      'from-orange-500 to-red-500',
-      'from-pink-500 to-rose-500',
-      'from-indigo-500 to-blue-500'
+      'from-[#01a99c] to-[#52c1c9]',
+      'from-[#52c1c9] to-[#01a99c]',
+      'from-[#064e53] to-[#01a99c]',
+      'from-[#01a99c] to-[#52c1c9]',
+      'from-[#52c1c9] to-[#064e53]',
+      'from-[#01a99c] to-[#52c1c9]'
     ];
     return colors[index % colors.length];
   };
@@ -381,9 +381,9 @@ const ResultsMetrics = ({ metrics, caseStudyId }: ResultsMetricsProps) => {
           </div>
 
           {/* Impact Summary */}
-          <div className="bg-gradient-to-r from-green-500/10 to-blue-500/10 backdrop-blur-sm rounded-2xl p-8 border border-green-500/20">
+          <div className="bg-gradient-to-r from-[#01a99c]/10 to-[#52c1c9]/10 backdrop-blur-sm rounded-2xl p-8 border border-[#01a99c]/20">
             <div className="text-center">
-              <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 bg-[#01a99c]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-3xl">🎯</span>
               </div>
               <h3 className="text-2xl font-bold text-white mb-4">
@@ -399,19 +399,19 @@ const ResultsMetrics = ({ metrics, caseStudyId }: ResultsMetricsProps) => {
               {/* Key Achievements */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-green-400 mb-2">
+                  <div className="text-3xl font-bold text-[#01a99c] mb-2">
                     {metrics.length}
                   </div>
                   <div className="text-gray-300">Key Metrics Improved</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-400 mb-2">
+                  <div className="text-3xl font-bold text-[#52c1c9] mb-2">
                     {metrics.filter(m => m.improvement).length}
                   </div>
                   <div className="text-gray-300">Measurable Improvements</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-purple-400 mb-2">
+                  <div className="text-3xl font-bold text-[#01a99c] mb-2">
                     100%
                   </div>
                   <div className="text-gray-300">Objectives Achieved</div>

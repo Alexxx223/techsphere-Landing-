@@ -124,7 +124,7 @@ const SocialShare: React.FC<SocialShareProps> = ({
           variant="ghost"
           size="sm"
           onClick={handleCopyLink}
-          className="p-2 hover:text-teal transition-colors"
+          className="p-2 hover:text-[#01a99c] transition-colors"
           title="Copy link"
         >
           {copied ? <Check className="h-4 w-4" /> : <Link className="h-4 w-4" />}
@@ -153,7 +153,7 @@ const SocialShare: React.FC<SocialShareProps> = ({
             variant="ghost"
             size="sm"
             onClick={handleCopyLink}
-            className="p-2 hover:text-teal transition-colors"
+            className="p-2 hover:text-[#01a99c] transition-colors"
             title="Copy link"
           >
             {copied ? <Check className="h-4 w-4" /> : <Link className="h-4 w-4" />}

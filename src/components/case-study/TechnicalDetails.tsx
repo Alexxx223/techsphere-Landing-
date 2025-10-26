@@ -163,14 +163,14 @@ const TechnicalDetails = ({ technologies, projectTitle }: TechnicalDetailsProps)
 
   const getCategoryColor = (category: string) => {
     const colors = {
-      frontend: 'from-blue-500 to-cyan-500',
-      backend: 'from-green-500 to-emerald-500',
-      database: 'from-purple-500 to-violet-500',
-      tool: 'from-orange-500 to-red-500',
-      design: 'from-pink-500 to-rose-500',
-      all: 'from-gray-500 to-gray-600'
+      frontend: 'from-[#01a99c] to-[#52c1c9]',
+      backend: 'from-[#064e53] to-[#01a99c]',
+      database: 'from-[#52c1c9] to-[#01a99c]',
+      tool: 'from-[#01a99c] to-[#064e53]',
+      design: 'from-[#52c1c9] to-[#01a99c]',
+      all: 'from-[#064e53] to-[#01a99c]'
     };
-    return colors[category as keyof typeof colors] || 'from-gray-500 to-gray-600';
+    return colors[category as keyof typeof colors] || 'from-[#064e53] to-[#01a99c]';
   };
 
   return (
@@ -263,11 +263,11 @@ const TechnicalDetails = ({ technologies, projectTitle }: TechnicalDetailsProps)
                 {/* Frontend Layer */}
                 <div className="w-full max-w-4xl">
                   <div className="text-center mb-4">
-                    <h4 className="text-lg font-semibold text-blue-400">Frontend Layer</h4>
+                    <h4 className="text-lg font-semibold text-[#01a99c]">Frontend Layer</h4>
                   </div>
                   <div className="flex justify-center space-x-4">
                     {techByCategory.frontend?.map((tech, index) => (
-                      <div key={index} className="bg-blue-500/20 rounded-lg px-4 py-2 text-blue-300 text-sm">
+                      <div key={index} className="bg-[#01a99c]/20 rounded-lg px-4 py-2 text-[#52c1c9] text-sm">
                         {tech.name}
                       </div>
                     ))}
@@ -282,11 +282,11 @@ const TechnicalDetails = ({ technologies, projectTitle }: TechnicalDetailsProps)
                   <>
                     <div className="w-full max-w-4xl">
                       <div className="text-center mb-4">
-                        <h4 className="text-lg font-semibold text-green-400">Backend Layer</h4>
+                        <h4 className="text-lg font-semibold text-[#52c1c9]">Backend Layer</h4>
                       </div>
                       <div className="flex justify-center space-x-4">
                         {techByCategory.backend.map((tech, index) => (
-                          <div key={index} className="bg-green-500/20 rounded-lg px-4 py-2 text-green-300 text-sm">
+                          <div key={index} className="bg-[#52c1c9]/20 rounded-lg px-4 py-2 text-[#01a99c] text-sm">
                             {tech.name}
                           </div>
                         ))}
@@ -300,11 +300,11 @@ const TechnicalDetails = ({ technologies, projectTitle }: TechnicalDetailsProps)
                 {techByCategory.database && (
                   <div className="w-full max-w-4xl">
                     <div className="text-center mb-4">
-                      <h4 className="text-lg font-semibold text-purple-400">Database Layer</h4>
+                      <h4 className="text-lg font-semibold text-[#01a99c]">Database Layer</h4>
                     </div>
                     <div className="flex justify-center space-x-4">
                       {techByCategory.database.map((tech, index) => (
-                        <div key={index} className="bg-purple-500/20 rounded-lg px-4 py-2 text-purple-300 text-sm">
+                        <div key={index} className="bg-[#01a99c]/20 rounded-lg px-4 py-2 text-[#52c1c9] text-sm">
                           {tech.name}
                         </div>
                       ))}
@@ -334,17 +334,17 @@ const TechnicalDetails = ({ technologies, projectTitle }: TechnicalDetailsProps)
               </div>
               <div className="bg-black/50 rounded-lg p-4 font-mono text-sm overflow-x-auto">
                 <div className="text-gray-300">
-                  <span className="text-blue-400">// {projectTitle} - Core Implementation</span><br/>
-                  <span className="text-purple-400">const</span> <span className="text-yellow-400">projectConfig</span> = {`{`}<br/>
-                  &nbsp;&nbsp;<span className="text-green-400">technologies</span>: [<br/>
+                  <span className="text-[#52c1c9]">// {projectTitle} - Core Implementation</span><br/>
+                  <span className="text-[#01a99c]">const</span> <span className="text-[#52c1c9]">projectConfig</span> = {`{`}<br/>
+                  &nbsp;&nbsp;<span className="text-[#01a99c]">technologies</span>: [<br/>
                   {filteredTechnologies.slice(0, 3).map((tech, index) => (
                     <span key={index}>
-                      &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-orange-400">'{tech.name}'</span>{index < 2 ? ',' : ''}<br/>
+                      &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#52c1c9]">'{tech.name}'</span>{index < 2 ? ',' : ''}<br/>
                     </span>
                   ))}
                   &nbsp;&nbsp;],<br/>
-                  &nbsp;&nbsp;<span className="text-green-400">category</span>: <span className="text-orange-400">'{selectedCategory}'</span>,<br/>
-                  &nbsp;&nbsp;<span className="text-green-400">performance</span>: <span className="text-orange-400">'optimized'</span><br/>
+                  &nbsp;&nbsp;<span className="text-[#01a99c]">category</span>: <span className="text-[#52c1c9]">'{selectedCategory}'</span>,<br/>
+                  &nbsp;&nbsp;<span className="text-[#01a99c]">performance</span>: <span className="text-[#52c1c9]">'optimized'</span><br/>
                   {`};`}
                 </div>
               </div>
@@ -358,21 +358,21 @@ const TechnicalDetails = ({ technologies, projectTitle }: TechnicalDetailsProps)
             </h3>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="text-center p-6 bg-gray-700/30 rounded-xl hover:bg-gray-700/50 transition-all duration-300">
-                <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-[#01a99c]/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl">⚡</span>
                 </div>
                 <h4 className="text-lg font-semibold text-white mb-2">Performance</h4>
                 <p className="text-gray-300 text-sm">Optimized for speed and efficiency</p>
               </div>
               <div className="text-center p-6 bg-gray-700/30 rounded-xl hover:bg-gray-700/50 transition-all duration-300">
-                <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-[#52c1c9]/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl">🔒</span>
                 </div>
                 <h4 className="text-lg font-semibold text-white mb-2">Security</h4>
                 <p className="text-gray-300 text-sm">Built with security best practices</p>
               </div>
               <div className="text-center p-6 bg-gray-700/30 rounded-xl hover:bg-gray-700/50 transition-all duration-300">
-                <div className="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-[#01a99c]/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl">📱</span>
                 </div>
                 <h4 className="text-lg font-semibold text-white mb-2">Responsive</h4>

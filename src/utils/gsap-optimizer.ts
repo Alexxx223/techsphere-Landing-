@@ -18,7 +18,7 @@ export const initializeGSAP = () => {
   // Configure ScrollTrigger for better performance
   ScrollTrigger.config({
     autoRefreshEvents: "visibilitychange,DOMContentLoaded,load",
-    ignoreMobileResize: true,
+    ignoreMobileResize: false,
   });
 
   // Batch ScrollTrigger refreshes for better performance
@@ -121,8 +121,10 @@ export const cleanupGSAP = (selector?: string) => {
     // Kill specific animations
     gsap.killTweensOf(selector);
     ScrollTrigger.getAll().forEach(trigger => {
-      if (trigger.trigger === selector || 
-          (typeof trigger.trigger === 'string' && trigger.trigger.includes(selector))) {
+      const triggerElement = trigger.trigger;
+      if (typeof triggerElement === 'string' && (triggerElement === selector || (triggerElement as string).includes(selector))) {
+        trigger.kill();
+      } else if (triggerElement instanceof Element && triggerElement.matches(selector)) {
         trigger.kill();
       }
     });

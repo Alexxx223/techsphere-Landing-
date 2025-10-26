@@ -74,7 +74,7 @@ const AnimatedCaseStudyWrapper = ({ children, className = '' }: AnimatedCaseStud
     >
       {/* Scroll Progress Indicator */}
       <div className="fixed top-0 left-0 w-full h-1 bg-gray-200 z-50">
-        <div className="scroll-progress h-full bg-gradient-to-r from-blue-500 to-purple-500 w-0"></div>
+        <div className="scroll-progress h-full bg-gradient-to-r from-[#01a99c] to-[#52c1c9] w-0"></div>
       </div>
 
       {/* Main Content */}
@@ -84,9 +84,9 @@ const AnimatedCaseStudyWrapper = ({ children, className = '' }: AnimatedCaseStud
       <div className="particle-container fixed inset-0 pointer-events-none z-10"></div>
       
       {/* Floating geometric shapes */}
-      <div className="floating-element fixed top-20 right-20 w-4 h-4 bg-blue-500/20 rounded-full"></div>
-      <div className="floating-element fixed top-40 left-20 w-6 h-6 bg-purple-500/20 rotate-45"></div>
-      <div className="floating-element fixed bottom-40 right-40 w-3 h-3 bg-green-500/20 rounded-full"></div>
+      <div className="floating-element fixed top-20 right-20 w-4 h-4 bg-[#01a99c]/20 rounded-full"></div>
+      <div className="floating-element fixed top-40 left-20 w-6 h-6 bg-[#52c1c9]/20 rotate-45"></div>
+      <div className="floating-element fixed bottom-40 right-40 w-3 h-3 bg-[#01a99c]/20 rounded-full"></div>
     </div>
   );
 };

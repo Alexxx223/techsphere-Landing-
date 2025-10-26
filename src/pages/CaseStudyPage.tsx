@@ -20,6 +20,7 @@ import { CaseStudyPageLoading } from '@/components/ui/loading-states';
 import { useCaseStudyPreloader, useAdjacentCaseStudyPreloader } from '@/hooks/useCaseStudyPreloader';
 import { useCaseStudyErrorHandler } from '@/hooks/useErrorHandler';
 import { initializePerformanceOptimizations, cleanupGSAP } from '@/utils/gsap-optimizer';
+import { CaseStudyAnimations } from '@/lib/animations/CaseStudyAnimations';
 import { initializeFallbackAnimations, recoverFromAnimationError } from '@/utils/animation-fallbacks';
 import { 
   Breadcrumb, 
@@ -112,6 +113,12 @@ const CaseStudyPage = () => {
       try {
         animatePageEnter(pageRef.current);
         animateBreadcrumbEnter(breadcrumbRef.current);
+        const caseStudyAnimations = new CaseStudyAnimations();
+        caseStudyAnimations.createImageReveal('.case-study-image');
+
+        return () => {
+          caseStudyAnimations.destroy();
+        };
       } catch (animationError) {
         recoverFromAnimationError(animationError as Error, pageRef.current);
         handleError(animationError as Error);

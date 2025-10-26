@@ -135,7 +135,7 @@ const ProjectOverview = ({ caseStudy }: ProjectOverviewProps) => {
               className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 hover:border-gray-600/50 transition-all duration-300"
             >
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mr-4">
+                <div className="w-12 h-12 bg-[#01a99c]/20 rounded-xl flex items-center justify-center mr-4">
                   <span className="text-2xl">💡</span>
                 </div>
                 <h3 className="text-2xl font-semibold text-white">Our Solution</h3>
@@ -149,10 +149,10 @@ const ProjectOverview = ({ caseStudy }: ProjectOverviewProps) => {
           {/* Result */}
           <div 
             ref={resultRef}
-            className="bg-gradient-to-r from-green-500/10 to-blue-500/10 backdrop-blur-sm rounded-2xl p-8 border border-green-500/20 mb-16"
+            className="bg-gradient-to-r from-[#01a99c]/10 to-[#52c1c9]/10 backdrop-blur-sm rounded-2xl p-8 border border-[#01a99c]/20 mb-16"
           >
             <div className="flex items-center mb-6">
-              <div className="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center mr-4">
+              <div className="w-12 h-12 bg-[#01a99c]/20 rounded-xl flex items-center justify-center mr-4">
                 <span className="text-2xl">🚀</span>
               </div>
               <h3 className="text-2xl font-semibold text-white">The Result</h3>
@@ -168,7 +168,7 @@ const ProjectOverview = ({ caseStudy }: ProjectOverviewProps) => {
             className="bg-gray-800/30 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/30"
           >
             <div className="flex items-center mb-8">
-              <div className="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center mr-4">
+              <div className="w-12 h-12 bg-[#52c1c9]/20 rounded-xl flex items-center justify-center mr-4">
                 <span className="text-2xl">📋</span>
               </div>
               <h3 className="text-2xl font-semibold text-white">Project Objectives</h3>
@@ -179,8 +179,8 @@ const ProjectOverview = ({ caseStudy }: ProjectOverviewProps) => {
                   key={index}
                   className="flex items-start space-x-3 p-4 bg-gray-700/30 rounded-xl hover:bg-gray-700/50 transition-all duration-300"
                 >
-                  <div className="w-6 h-6 bg-purple-500/30 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <span className="text-purple-300 text-sm font-bold">{index + 1}</span>
+                  <div className="w-6 h-6 bg-[#52c1c9]/30 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="text-[#01a99c] text-sm font-bold">{index + 1}</span>
                   </div>
                   <p className="text-gray-300 leading-relaxed">{objective}</p>
                 </div>

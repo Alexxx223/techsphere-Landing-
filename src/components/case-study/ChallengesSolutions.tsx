@@ -130,7 +130,7 @@ const ChallengesSolutions = ({ challengesSolutions }: ChallengesSolutionsProps) 
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 transform rotate-12 scale-150" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#01a99c]/20 to-[#52c1c9]/20 transform rotate-12 scale-150" />
       </div>
 
       <div className={`container mx-auto ${isMobile ? 'px-4' : 'px-4'} relative z-10`}>
@@ -161,7 +161,7 @@ const ChallengesSolutions = ({ challengesSolutions }: ChallengesSolutionsProps) 
                 onClick={() => switchView('solution')}
                 className={`${isMobile ? 'flex-1 px-4 py-3 text-sm' : 'px-8 py-3'} rounded-full font-medium transition-all duration-300 ${isTouchDevice ? 'min-h-[44px]' : ''} ${
                   activeView === 'solution'
-                    ? 'bg-blue-500 text-white shadow-lg shadow-blue-500/25'
+                    ? 'bg-[#01a99c] text-white shadow-lg shadow-[#01a99c]/25'
                     : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
                 }`}
                 disabled={isTransitioning}
@@ -255,15 +255,15 @@ const ChallengesSolutions = ({ challengesSolutions }: ChallengesSolutionsProps) 
 
                   {/* Approach */}
                   <div>
-                    <h4 className={`${isMobile ? 'text-lg' : 'text-xl'} font-semibold text-blue-400 ${isMobile ? 'mb-3' : 'mb-4'}`}>Our Approach</h4>
+                    <h4 className={`${isMobile ? 'text-lg' : 'text-xl'} font-semibold text-[#01a99c] ${isMobile ? 'mb-3' : 'mb-4'}`}>Our Approach</h4>
                     <div className="space-y-3">
                       {challengesSolutions.solution.approach.map((item, index) => (
                         <div
                           key={index}
-                          className={`flex items-start space-x-3 ${isMobile ? 'p-3' : 'p-4'} bg-blue-500/10 border border-blue-500/20 rounded-xl`}
+                          className={`flex items-start space-x-3 ${isMobile ? 'p-3' : 'p-4'} bg-[#01a99c]/10 border border-[#01a99c]/20 rounded-xl`}
                         >
-                          <div className="w-6 h-6 bg-blue-500/30 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <span className="text-blue-300 text-sm">✓</span>
+                          <div className="w-6 h-6 bg-[#01a99c]/30 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <span className="text-[#52c1c9] text-sm">✓</span>
                           </div>
                           <p className={`text-gray-300 ${isMobile ? 'text-sm' : 'text-base'} leading-relaxed`}>{item}</p>
                         </div>
@@ -273,14 +273,14 @@ const ChallengesSolutions = ({ challengesSolutions }: ChallengesSolutionsProps) 
 
                   {/* Key Features */}
                   <div>
-                    <h4 className={`${isMobile ? 'text-lg' : 'text-xl'} font-semibold text-green-400 ${isMobile ? 'mb-3' : 'mb-4'}`}>Key Features</h4>
+                    <h4 className={`${isMobile ? 'text-lg' : 'text-xl'} font-semibold text-[#52c1c9] ${isMobile ? 'mb-3' : 'mb-4'}`}>Key Features</h4>
                     <div className="grid gap-3">
                       {challengesSolutions.solution.keyFeatures.map((feature, index) => (
                         <div
                           key={index}
-                          className={`flex items-center space-x-3 ${isMobile ? 'p-2' : 'p-3'} bg-green-500/10 border border-green-500/20 rounded-lg`}
+                          className={`flex items-center space-x-3 ${isMobile ? 'p-2' : 'p-3'} bg-[#52c1c9]/10 border border-[#52c1c9]/20 rounded-lg`}
                         >
-                          <div className="w-2 h-2 bg-green-400 rounded-full flex-shrink-0" />
+                          <div className="w-2 h-2 bg-[#52c1c9] rounded-full flex-shrink-0" />
                           <p className="text-gray-300 text-sm leading-relaxed">{feature}</p>
                         </div>
                       ))}
@@ -290,7 +290,7 @@ const ChallengesSolutions = ({ challengesSolutions }: ChallengesSolutionsProps) 
 
                 {/* Solution Image */}
                 <div className={`relative ${isMobile ? 'order-1' : 'lg:order-2'}`}>
-                  <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-blue-500/10 to-green-500/10 border border-blue-500/20">
+                  <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-[#01a99c]/10 to-[#52c1c9]/10 border border-[#01a99c]/20">
                     <img
                       src={challengesSolutions.solution.image}
                       alt={challengesSolutions.solution.title}
@@ -298,7 +298,7 @@ const ChallengesSolutions = ({ challengesSolutions }: ChallengesSolutionsProps) 
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                     <div className="absolute bottom-4 left-4 right-4">
-                      <div className="flex items-center space-x-2 text-blue-400">
+                      <div className="flex items-center space-x-2 text-[#01a99c]">
                         <span className={`${isMobile ? 'text-xl' : 'text-2xl'}`}>💡</span>
                         <span className="font-medium">Solution</span>
                       </div>
@@ -321,7 +321,7 @@ const ChallengesSolutions = ({ challengesSolutions }: ChallengesSolutionsProps) 
               />
               <div className="w-16 h-1 bg-gray-700 rounded-full overflow-hidden">
                 <div 
-                  className={`h-full bg-gradient-to-r from-red-500 to-blue-500 transition-transform duration-500 ${
+                  className={`h-full bg-gradient-to-r from-red-500 to-[#01a99c] transition-transform duration-500 ${
                     activeView === 'challenge' ? 'translate-x-0' : 'translate-x-full'
                   }`}
                   style={{ width: '50%' }}
@@ -330,7 +330,7 @@ const ChallengesSolutions = ({ challengesSolutions }: ChallengesSolutionsProps) 
               <button
                 onClick={() => switchView('solution')}
                 className={`${isTouchDevice ? 'w-4 h-4' : 'w-3 h-3'} rounded-full transition-all duration-300 ${
-                  activeView === 'solution' ? 'bg-blue-500' : 'bg-gray-600'
+                  activeView === 'solution' ? 'bg-[#01a99c]' : 'bg-gray-600'
                 }`}
                 aria-label="View solution"
               />

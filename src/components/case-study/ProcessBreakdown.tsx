@@ -171,7 +171,7 @@ const ProcessBreakdown = ({ processSteps }: ProcessBreakdownProps) => {
           >
             {/* Timeline Line - Hidden on mobile for cleaner layout */}
             {!isMobile && (
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-blue-500 to-purple-500 timeline-line origin-top"
+              <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-[#01a99c] to-[#52c1c9] timeline-line origin-top"
                 style={{ height: `${(processSteps.length - 1) * 400 + 200}px` }}
               />
             )}
@@ -186,7 +186,7 @@ const ProcessBreakdown = ({ processSteps }: ProcessBreakdownProps) => {
                 >
                   {/* Timeline Node */}
                   {!isMobile && (
-                    <div className="absolute left-1/2 transform -translate-x-1/2 w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center z-10 shadow-lg">
+                    <div className="absolute left-1/2 transform -translate-x-1/2 w-16 h-16 bg-gradient-to-br from-[#01a99c] to-[#52c1c9] rounded-full flex items-center justify-center z-10 shadow-lg">
                       <span className="text-2xl">{step.icon}</span>
                     </div>
                   )}
@@ -194,10 +194,10 @@ const ProcessBreakdown = ({ processSteps }: ProcessBreakdownProps) => {
                   {/* Mobile Step Number */}
                   {isMobile && (
                     <div className="flex items-center mb-4">
-                      <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center mr-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-[#01a99c] to-[#52c1c9] rounded-full flex items-center justify-center mr-4">
                         <span className="text-xl">{step.icon}</span>
                       </div>
-                      <span className="text-sm font-medium text-blue-400 uppercase tracking-wider">
+                      <span className="text-sm font-medium text-[#52c1c9] uppercase tracking-wider">
                         Step {step.order}
                       </span>
                     </div>
@@ -210,7 +210,7 @@ const ProcessBreakdown = ({ processSteps }: ProcessBreakdownProps) => {
                       <div className={`${isMobile ? 'mb-4' : 'mb-6'}`}>
                         {!isMobile && (
                           <div className="flex items-center justify-between mb-2">
-                            <span className="text-sm font-medium text-blue-400 uppercase tracking-wider">
+                            <span className="text-sm font-medium text-[#52c1c9] uppercase tracking-wider">
                               Step {step.order}
                             </span>
                             <span className="text-sm text-gray-400">
@@ -285,7 +285,7 @@ const ProcessBreakdown = ({ processSteps }: ProcessBreakdownProps) => {
                         <div>
                           <button
                             onClick={() => toggleStep(step.id)}
-                            className={`flex items-center justify-between w-full text-left text-blue-400 hover:text-blue-300 transition-colors duration-200 ${isMobile ? 'mb-3 py-2' : 'mb-4'} ${isTouchDevice ? 'min-h-[44px]' : ''}`}
+                            className={`flex items-center justify-between w-full text-left text-[#52c1c9] hover:text-[#01a99c] transition-colors duration-200 ${isMobile ? 'mb-3 py-2' : 'mb-4'} ${isTouchDevice ? 'min-h-[44px]' : ''}`}
                           >
                             <span className="font-medium">View Details</span>
                             <span className={`transform transition-transform duration-200 ${
@@ -302,7 +302,7 @@ const ProcessBreakdown = ({ processSteps }: ProcessBreakdownProps) => {
                                   key={detailIndex}
                                   className={`flex items-start space-x-3 ${isMobile ? 'p-3' : 'p-3'} bg-gray-700/30 rounded-lg`}
                                 >
-                                  <div className="w-2 h-2 bg-blue-400 rounded-full flex-shrink-0 mt-2" />
+                                  <div className="w-2 h-2 bg-[#01a99c] rounded-full flex-shrink-0 mt-2" />
                                   <p className="text-gray-300 text-sm leading-relaxed">
                                     {detail}
                                   </p>

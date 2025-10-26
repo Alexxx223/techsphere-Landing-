@@ -43,7 +43,7 @@ export const caseStudies: CaseStudy[] = [
           'Developed brand positioning strategy'
         ],
         order: 1,
-        icon: '🔍'
+        icon: ''
       },
       {
         id: 'concept',
@@ -58,7 +58,7 @@ export const caseStudies: CaseStudy[] = [
           'Presented concepts to stakeholders'
         ],
         order: 2,
-        icon: '💡'
+        icon: ''
       },
       {
         id: 'design',
@@ -73,7 +73,7 @@ export const caseStudies: CaseStudy[] = [
           'Created icon system and visual elements'
         ],
         order: 3,
-        icon: '🎨'
+        icon: ''
       },
       {
         id: 'guidelines',
@@ -88,7 +88,7 @@ export const caseStudies: CaseStudy[] = [
           'Provided implementation support and training'
         ],
         order: 4,
-        icon: '📋'
+        icon: ''
       }
     ],
     
@@ -234,7 +234,7 @@ export const caseStudies: CaseStudy[] = [
           'Identified brand perception gaps'
         ],
         order: 1,
-        icon: '📊'
+        icon: ''
       },
       {
         id: 'strategy',
@@ -249,7 +249,7 @@ export const caseStudies: CaseStudy[] = [
           'Established brand voice and tone guidelines'
         ],
         order: 2,
-        icon: '🎯'
+        icon: ''
       },
       {
         id: 'design-system',
@@ -264,7 +264,7 @@ export const caseStudies: CaseStudy[] = [
           'Established photography and imagery guidelines'
         ],
         order: 3,
-        icon: '🎨'
+        icon: ''
       },
       {
         id: 'implementation',
@@ -279,7 +279,7 @@ export const caseStudies: CaseStudy[] = [
           'Produced digital assets and social media templates'
         ],
         order: 4,
-        icon: '📋'
+        icon: ''
       }
     ],    
 
@@ -425,7 +425,7 @@ export const caseStudies: CaseStudy[] = [
           'Established brand positioning strategy'
         ],
         order: 1,
-        icon: '🔍'
+        icon: ''
       },
       {
         id: 'identity',
@@ -440,7 +440,7 @@ export const caseStudies: CaseStudy[] = [
           'Developed supporting visual elements and patterns'
         ],
         order: 2,
-        icon: '🎨'
+        icon: ''
       },
       {
         id: 'messaging',
@@ -455,7 +455,7 @@ export const caseStudies: CaseStudy[] = [
           'Wrote brand story and value propositions'
         ],
         order: 3,
-        icon: '💬'
+        icon: ''
       },
       {
         id: 'system',
@@ -470,7 +470,7 @@ export const caseStudies: CaseStudy[] = [
           'Established digital brand implementation standards'
         ],
         order: 4,
-        icon: '📋'
+        icon: ''
       }
     ],  
   
@@ -615,7 +615,7 @@ export const caseStudies: CaseStudy[] = [
           'Defined differentiation opportunities'
         ],
         order: 1,
-        icon: '🔍'
+        icon: ''
       },
       {
         id: 'concepts',
@@ -630,7 +630,7 @@ export const caseStudies: CaseStudy[] = [
           'Refined top 3 concepts for presentation'
         ],
         order: 2,
-        icon: '💡'
+        icon: ''
       },
       {
         id: 'refinement',
@@ -645,7 +645,7 @@ export const caseStudies: CaseStudy[] = [
           'Tested scalability and legibility'
         ],
         order: 3,
-        icon: '🎨'
+        icon: ''
       },
       {
         id: 'delivery',
@@ -660,7 +660,7 @@ export const caseStudies: CaseStudy[] = [
           'Provided usage guidelines and recommendations'
         ],
         order: 4,
-        icon: '📦'
+        icon: ''
       }
     ],
     
@@ -805,7 +805,7 @@ export const caseStudies: CaseStudy[] = [
           'Planned multi-channel campaign deployment'
         ],
         order: 1,
-        icon: '📋'
+        icon: ''
       },
       {
         id: 'creative',
@@ -820,7 +820,7 @@ export const caseStudies: CaseStudy[] = [
           'Established consistent visual language'
         ],
         order: 2,
-        icon: '🎨'
+        icon: ''
       },
       {
         id: 'production',
@@ -835,7 +835,7 @@ export const caseStudies: CaseStudy[] = [
           'Optimized all assets for their respective channels'
         ],
         order: 3,
-        icon: '⚙️'
+        icon: ''
       },
       {
         id: 'launch',
@@ -850,7 +850,7 @@ export const caseStudies: CaseStudy[] = [
           'Provided performance reporting and insights'
         ],
         order: 4,
-        icon: '🚀'
+        icon: ''
       }
     ],
     

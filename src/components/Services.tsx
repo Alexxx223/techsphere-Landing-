@@ -1,28 +1,38 @@
 
 import React from 'react';
-import { Laptop, Smartphone, Database, Layers } from 'lucide-react';
+import { Laptop, Palette, FileText, FileEdit, Megaphone, Database } from 'lucide-react';
 
 const Services = () => {
   const services = [
     {
-      title: "Web Development",
-      description: "Designing and building modern, responsive websites to enhance your online presence.",
+      title: "Web Design",
+      description: "Fast, responsive websites built to convert visitors into customers. We create designs that work for your business.",
       icon: <Laptop className="h-6 w-6 text-teal" />
     },
     {
-      title: "Mobile App Design",
-      description: "Creating intuitive and user-friendly mobile app designs tailored to your business goals.",
-      icon: <Smartphone className="h-6 w-6 text-cyan" />
+      title: "Logo & Brand Identity",
+      description: "Create a memorable brand with smarter visuals that make a stronger impact in your market.",
+      icon: <Palette className="h-6 w-6 text-cyan" />
     },
     {
-      title: "Graphics Design",
-      description: "Our graphic design services provide innovative, eye-catching designs tailored to elevate your brand's visual identity.",
-      icon: <Database className="h-6 w-6 text-teal" />
+      title: "Business Cards & Profiles",
+      description: "Professional marketing tools designed to help you win more clients and grow your business.",
+      icon: <FileText className="h-6 w-6 text-teal" />
     },
     {
-      title: "IT Consulting",
-      description: "Providing expert advice to align your IT strategy with your business objectives.",
-      icon: <Layers className="h-6 w-6 text-cyan" />
+      title: "Resume Design",
+      description: "Stand out from the crowd with a professionally designed resume that gets you noticed.",
+      icon: <FileEdit className="h-6 w-6 text-cyan" />
+    },
+    {
+      title: "Flyers & Marketing",
+      description: "Eye-catching designs customized for your marketing campaigns to attract more customers.",
+      icon: <Megaphone className="h-6 w-6 text-teal" />
+    },
+    {
+      title: "IT Consulting & Repair",
+      description: "Expert technology solutions that just work, keeping your business running smoothly.",
+      icon: <Database className="h-6 w-6 text-cyan" />
     }
   ];
 
@@ -36,12 +46,12 @@ const Services = () => {
         <div className="text-center mb-16" data-aos="fade-up">
           <h2 className="madeinhaus-display-md mb-6">Our Services</h2>
           <p className="madeinhaus-body-large max-w-3xl mx-auto">
-            At TechSphere, we offer a wide range of technology services that drive innovation and create value for our clients. 
-            From developing digital strategies to implementing advanced IT solutions, we are here to help your business thrive.
+            We help businesses grow with professional design and technology solutions. 
+            From stunning websites to memorable branding, we deliver results that make an impact.
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <div key={index} className="glassmorphism rounded-xl p-6 transition-all duration-300 hover:bg-white/10" data-aos="fade-up" data-aos-delay={index * 100}>
               <div className="inline-flex items-center justify-center h-14 w-14 rounded-lg bg-white/5 border border-white/10 mb-6">

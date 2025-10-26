@@ -80,7 +80,7 @@ const SectionNavigation: React.FC<SectionNavigationProps> = ({
               className={cn(
                 "block px-3 py-2 rounded-md text-sm transition-colors duration-200",
                 currentSection === section.id
-                  ? "bg-teal text-white"
+                  ? "bg-[#01a99c] text-white"
                   : "text-white/70 hover:text-white hover:bg-white/10"
               )}
               onClick={() => setIsOpen(false)}
@@ -112,7 +112,7 @@ const SectionNavigation: React.FC<SectionNavigationProps> = ({
                 href={socialUrls.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center w-8 h-8 rounded-md bg-white/10 hover:bg-blue-500/20 text-white/70 hover:text-blue-400 transition-colors duration-200"
+                className="flex items-center justify-center w-8 h-8 rounded-md bg-white/10 hover:bg-[#01a99c]/20 text-white/70 hover:text-[#01a99c] transition-colors duration-200"
                 aria-label="Share on Twitter"
               >
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -124,7 +124,7 @@ const SectionNavigation: React.FC<SectionNavigationProps> = ({
                 href={socialUrls.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center w-8 h-8 rounded-md bg-white/10 hover:bg-blue-600/20 text-white/70 hover:text-blue-500 transition-colors duration-200"
+                className="flex items-center justify-center w-8 h-8 rounded-md bg-white/10 hover:bg-[#52c1c9]/20 text-white/70 hover:text-[#52c1c9] transition-colors duration-200"
                 aria-label="Share on LinkedIn"
               >
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
