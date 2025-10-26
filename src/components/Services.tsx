@@ -21,7 +21,7 @@ const Services = () => {
     },
     {
       title: "Resume Design",
-      description: "Stand out from the crowd with a professionally designed resume that gets you noticed.",
+      description: "Stand out from the crowd with a professionally designed resume that gets you hired.",
       icon: <FileEdit className="h-6 w-6 text-cyan" />
     },
     {
