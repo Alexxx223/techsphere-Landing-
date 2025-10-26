@@ -31,7 +31,7 @@ const About = () => {
                 <h4 className="madeinhaus-heading text-heading-sm mb-3">Custom Software Solutions</h4>
                 <p className="madeinhaus-body-base">
                   We specialize in building tailored software solutions to meet unique business needs,
-                  from web development to graphic designs.
+                  from web development to graphic designs to IT Support.
                 </p>
               </div>
               

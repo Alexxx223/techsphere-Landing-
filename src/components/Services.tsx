@@ -15,7 +15,7 @@ const Services = () => {
       icon: <Palette className="h-6 w-6 text-cyan" />
     },
     {
-      title: "Business Cards & Profiles",
+      title: "Business Cards & Company Profiles",
       description: "Professional marketing tools designed to help you win more clients and grow your business.",
       icon: <FileText className="h-6 w-6 text-teal" />
     },
@@ -30,7 +30,7 @@ const Services = () => {
       icon: <Megaphone className="h-6 w-6 text-teal" />
     },
     {
-      title: "IT Consulting & Repair",
+      title: "IT Consulting & Computer Repair",
       description: "Expert technology solutions that just work, keeping your business running smoothly.",
       icon: <Database className="h-6 w-6 text-cyan" />
     }
@@ -47,7 +47,7 @@ const Services = () => {
           <h2 className="madeinhaus-display-md mb-6">Our Services</h2>
           <p className="madeinhaus-body-large max-w-3xl mx-auto">
             We help businesses grow with professional design and technology solutions. 
-            From stunning websites to memorable branding, we deliver results that make an impact.
+            From stunning websites to memorable branding to IT Suppport, we deliver results that make an impact.
           </p>
         </div>
         

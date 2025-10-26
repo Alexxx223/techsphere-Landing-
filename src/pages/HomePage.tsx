@@ -30,7 +30,7 @@ const HomePage = () => {
         <link rel="canonical" href={canonicalUrl} />
         <meta
           name="keywords"
-          content="web development, web design, graphic design, digital solutions, e-commerce, responsive design, branding, SEO, TechSphere, software development, UI/UX"
+          content="web development, web design, graphic design, digital solutions, e-commerce, responsive design, IT Support, branding, SEO, TechSphere, software development, UI/UX"
         />
         <meta name="robots" content="index, follow" />
         <meta name="language" content="English" />
