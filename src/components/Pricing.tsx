@@ -119,7 +119,7 @@ const PricingCard = ({ price, title, description, features }: { price: string; t
 const Pricing = () => {
   const pricingPlans = [
     {
-      price: "K2,000",
+      price: "K2,500",
       title: "Start Up Package",
       description: "Perfect for small businesses to establish an online presence.",
       features: [
@@ -129,7 +129,7 @@ const Pricing = () => {
       ]
     },
     {
-      price: "K4,000",
+      price: "K4,500",
       title: "Business Package",
       description: "Comprehensive branding solution for growing businesses.",
       features: [
@@ -140,7 +140,7 @@ const Pricing = () => {
       ]
     },
     {
-      price: "K12,000",
+      price: "K30,000",
       title: "Premium Package",
       description: "Complete digital presence for established businesses.",
       features: [
